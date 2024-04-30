@@ -53,13 +53,17 @@ export const RankResult = ({rankedCharacters, setRankedCharacters}: RankResultPr
 
             // 新しい位置が古い位置と異なる場合のみプレースホルダーを更新
             if (newIndex !== oldIndex && newIndex !== placeholderIndex) {
-                setPlaceholderIndex(newIndex);
-                updatePlaceholder(oldIndex, newIndex);
+                setTimeout(() => {
+                    setPlaceholderIndex(newIndex);
+                    updatePlaceholder(oldIndex, newIndex);
+                }, 0);
             }
         } else {
             // プレースホルダーが設定されているが、現在のイベントで有効でない場合は解除
             if (placeholderIndex !== null) {
-                setPlaceholderIndex(null);
+                setTimeout(() => {
+                    setPlaceholderIndex(null);
+                }, 0);
             }
         }
     }

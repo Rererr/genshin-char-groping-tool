@@ -29,6 +29,11 @@ export default function CharacterRanking() {
         }
     };
 
+    // 選択されたキャラクターのリストの全削除
+    const clearRanking = () => {
+        setRankedCharacters([]);
+    };
+
     // 1位のキャラクターのsplashArtを取得
     const backgroundUrl = rankedCharacters.length > 0 ? prefix + rankedCharacters[0].splashArt : '';
 
@@ -57,6 +62,12 @@ export default function CharacterRanking() {
                      backgroundPosition: 'left 30% center'  // 左にずらす調整
                  }}>
                 <RankResult rankedCharacters={rankedCharacters} setRankedCharacters={setRankedCharacters}/>
+            </div>
+            <div className="pt-4">
+                <button onClick={clearRanking}
+                        className="w-full bg-blue-300 bg-opacity-50 text-white text-opacity-90 text-center font-bold py-2 rounded-md">
+                    ランキングをクリア
+                </button>
             </div>
         </div>
     );
