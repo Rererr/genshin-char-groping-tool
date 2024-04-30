@@ -1,6 +1,6 @@
 "use client";
 import {useState} from 'react';
-import {Character, initialCharacters} from './characterList';
+import {Character, initialCharacters} from './lists/characterList';
 import {RankResult} from './rankResult';
 import {CharacterPool} from './characterPool';
 

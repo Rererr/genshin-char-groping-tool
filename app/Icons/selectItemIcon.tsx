@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-function TypeIcon(
+function SelectItemIcon(
     props: Readonly<{
         src: string;
         alt: string;
@@ -20,4 +20,4 @@ function TypeIcon(
     </div>
 }
 
-export default TypeIcon
+export default SelectItemIcon

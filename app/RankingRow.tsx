@@ -1,4 +1,4 @@
-import {Character} from "@/app/characterList";
+import {Character} from "@/app/lists/characterList";
 import React from "react";
 import {useDroppable} from "@dnd-kit/core";
 import {CharacterBox} from "@/app/characterBox";

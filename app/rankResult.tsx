@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {DndContext, PointerSensor, TouchSensor, useSensor} from "@dnd-kit/core";
-import {Character} from "@/app/characterList";
+import {Character} from "@/app/lists/characterList";
 import {RankingRows} from "@/app/RankingRow";
 
 interface RankResultProps {

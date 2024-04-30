@@ -1,5 +1,5 @@
 import React from "react";
-import {Character} from "@/app/characterList";
+import {Character} from "@/app/lists/characterList";
 import CharacterIcon from "@/app/Icons/characterPoolIcon";
 import {useDraggable} from "@dnd-kit/core";
 import {CSS} from "@dnd-kit/utilities";

@@ -1,10 +1,11 @@
-import {Weapon, initialWeapons} from "@/app/weaponList";
-import {initialTypes, Type} from "@/app/typeList";
+import {Weapon, initialWeapons} from "@/app/lists/weaponList";
+import {initialTypes, Type} from "@/app/lists/typeList";
+import {initialRegions, Region} from "@/app/lists/regionList";
 
 export interface Character {
     id: string;
     name: string;
-    region: string;
+    region: Region;
     weapon: Weapon;
     type: Type;
     icon: string;
@@ -12,6 +13,11 @@ export interface Character {
     rarity: number;
     rank: number;
 }
+
+const regionMap: Record<string, Region> = initialRegions.reduce((map, region) => {
+    map[region.id] = region;
+    return map;
+}, {} as Record<string, Region>);
 
 const weaponMap: Record<string, Weapon> = initialWeapons.reduce((map, weapon) => {
     map[weapon.id] = weapon;
@@ -28,7 +34,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Sethos',
             name: 'セトス',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Sword'],
             type: typeMap['Electro'],
             icon: '/images/characters/Sethos/icon.png',
@@ -39,7 +45,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Sigewinne',
             name: 'シグウィン',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Sword'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Sigewinne/icon.png',
@@ -50,7 +56,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Clorinde',
             name: 'クロリンデ',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Sword'],
             type: typeMap['Electro'],
             icon: '/images/characters/Clorinde/icon.png',
@@ -61,7 +67,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Arlecchino',
             name: 'アルレッキーノ',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Arlecchino/icon.png',
@@ -72,7 +78,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Chiori',
             name: '千織',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Sword'],
             type: typeMap['Geo'],
             icon: '/images/characters/Chiori/icon.png',
@@ -83,7 +89,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Gaming',
             name: '嘉明',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Gaming/icon.png',
@@ -94,7 +100,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Xianyun',
             name: '閑雲',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Xianyun/icon.png',
@@ -105,7 +111,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Chevreuse',
             name: 'シュヴルーズ',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Electro'],
             icon: '/images/characters/Chevreuse/icon.png',
@@ -116,7 +122,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Navia',
             name: 'ナヴィア',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Geo'],
             icon: '/images/characters/Navia/icon.png',
@@ -127,7 +133,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Charlotte',
             name: 'シャルロット',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Charlotte/icon.png',
@@ -138,7 +144,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Furina',
             name: 'フリーナ',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Sword'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Furina/icon.png',
@@ -149,7 +155,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Neuvillette',
             name: 'ヌヴィレット',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Neuvillette/icon.png',
@@ -160,7 +166,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Wriothesley',
             name: 'リオセスリ',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Wriothesley/icon.png',
@@ -171,7 +177,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Freminet',
             name: 'フレミネ',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Freminet/icon.png',
@@ -182,7 +188,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Lyney',
             name: 'リネ',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Bow'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Lyney/icon.png',
@@ -193,7 +199,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Lynette',
             name: 'リネット',
-            region: 'Fontaine',
+            region: regionMap['Fontaine'],
             weapon: weaponMap['Sword'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Lynette/icon.png',
@@ -204,7 +210,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Kirara',
             name: '綺良々',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Sword'],
             type: typeMap['Dendro'],
             icon: '/images/characters/Kirara/icon.png',
@@ -215,7 +221,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Baizhu',
             name: '白朮',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Dendro'],
             icon: '/images/characters/Baizhu/icon.png',
@@ -226,7 +232,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Kaveh',
             name: 'カーヴェ',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Dendro'],
             icon: '/images/characters/Kaveh/icon.png',
@@ -237,7 +243,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Dehya',
             name: 'ディシア',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Dehya/icon.png',
@@ -248,7 +254,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Mika',
             name: 'ミカ',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Mika/icon.png',
@@ -259,7 +265,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Alhaitham',
             name: 'アルハイゼン',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Sword'],
             type: typeMap['Dendro'],
             icon: '/images/characters/Alhaitham/icon.png',
@@ -270,7 +276,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Yaoyao',
             name: 'ヨォーヨ',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Dendro'],
             icon: '/images/characters/Yaoyao/icon.png',
@@ -281,7 +287,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Wanderer',
             name: '放浪者',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Wanderer/icon.png',
@@ -292,7 +298,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Faruzan',
             name: 'ファルザン',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Bow'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Faruzan/icon.png',
@@ -303,7 +309,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Layla',
             name: 'レイラ',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Sword'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Layla/icon.png',
@@ -314,7 +320,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Nahida',
             name: 'ナヒーダ',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Dendro'],
             icon: '/images/characters/Nahida/icon.png',
@@ -325,7 +331,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Candace',
             name: 'キャンディス',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Candace/icon.png',
@@ -336,7 +342,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Cyno',
             name: 'セノ',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Electro'],
             icon: '/images/characters/Cyno/icon.png',
@@ -347,7 +353,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Nilou',
             name: 'ニーロウ',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Sword'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Nilou/icon.png',
@@ -358,7 +364,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Dori',
             name: 'ドリー',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Electro'],
             icon: '/images/characters/Dori/icon.png',
@@ -369,7 +375,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Collei',
             name: 'コレイ',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Bow'],
             type: typeMap['Dendro'],
             icon: '/images/characters/Collei/icon.png',
@@ -380,7 +386,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Tighnari',
             name: 'ティナリ',
-            region: 'Sumeru',
+            region: regionMap['Sumeru'],
             weapon: weaponMap['Bow'],
             type: typeMap['Dendro'],
             icon: '/images/characters/Tighnari/icon.png',
@@ -391,7 +397,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'ShikanoinHeizou',
             name: '鹿野院平蔵',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Anemo'],
             icon: '/images/characters/ShikanoinHeizou/icon.png',
@@ -402,7 +408,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'KukiShinobu',
             name: '九鬼忍',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Sword'],
             type: typeMap['Electro'],
             icon: '/images/characters/KukiShinobu/icon.png',
@@ -413,7 +419,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Yelan',
             name: '夜蘭',
-            region: 'LyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Bow'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Yelan/icon.png',
@@ -424,7 +430,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Xiao',
             name: '魈',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Xiao/icon.png',
@@ -435,7 +441,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Xiangling',
             name: '香菱',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Xiangling/icon.png',
@@ -446,7 +452,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'RaidenShogun',
             name: '雷電将軍',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Electro'],
             icon: '/images/characters/RaidenShogun/icon.png',
@@ -457,7 +463,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Razor',
             name: 'レザー',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Electro'],
             icon: '/images/characters/Razor/icon.png',
@@ -468,7 +474,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Albedo',
             name: 'アルベド',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Sword'],
             type: typeMap['Geo'],
             icon: '/images/characters/Albedo/icon.png',
@@ -479,7 +485,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Zhongli',
             name: '鍾離',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Geo'],
             icon: '/images/characters/Zhongli/icon.png',
@@ -490,7 +496,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Chongyun',
             name: '重雲',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Chongyun/icon.png',
@@ -501,7 +507,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Diona',
             name: 'ディオナ',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Bow'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Diona/icon.png',
@@ -512,7 +518,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Diluc',
             name: 'ディルック',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Diluc/icon.png',
@@ -523,7 +529,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Tartaglia',
             name: 'タルタリヤ',
-            region: 'Snezhnaya',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Bow'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Tartaglia/icon.png',
@@ -534,7 +540,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Xinyan',
             name: '辛炎',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Xinyan/icon.png',
@@ -545,7 +551,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Noelle',
             name: 'ノエル',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Geo'],
             icon: '/images/characters/Noelle/icon.png',
@@ -556,7 +562,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Xingqiu',
             name: '行秋',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Sword'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Xingqiu/icon.png',
@@ -567,7 +573,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Fischl.png',
             name: 'フィッシュル',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Bow'],
             type: typeMap['Electro'],
             icon: '/images/characters/Fischl/icon.png',
@@ -578,7 +584,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Mona',
             name: 'モナ',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Mona/icon.png',
@@ -589,7 +595,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'AratakiItto',
             name: '荒瀧一斗',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Geo'],
             icon: '/images/characters/AratakiItto/icon.png',
@@ -600,7 +606,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Barbara',
             name: 'バーバラ',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Hydro'],
             icon: '/images/characters/Barbara/icon.png',
@@ -611,7 +617,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'HuTao',
             name: '胡桃',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Pyro'],
             icon: '/images/characters/HuTao/icon.png',
@@ -622,7 +628,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Rosaria',
             name: 'ロサリア',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Rosaria/icon.png',
@@ -633,7 +639,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'KamisatoAyaka',
             name: '神里綾華',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Sword'],
             type: typeMap['Cryo'],
             icon: '/images/characters/KamisatoAyaka/icon.png',
@@ -644,7 +650,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'KamisatoAyato',
             name: '神里綾斗',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Sword'],
             type: typeMap['Hydro'],
             icon: '/images/characters/KamisatoAyato/icon.png',
@@ -655,7 +661,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Sucrose',
             name: 'スクロース',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Sucrose/icon.png',
@@ -666,7 +672,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Shenhe',
             name: '申鶴',
-            region: 'LyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Shenhe/icon.png',
@@ -677,7 +683,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Ganyu',
             name: '甘雨',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Bow'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Ganyu/icon.png',
@@ -688,7 +694,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Jean',
             name: 'ジン',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Sword'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Jean/icon.png',
@@ -699,7 +705,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Bennett',
             name: 'ベネット',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Sword'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Bennett/icon.png',
@@ -710,7 +716,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'SangonomiyaKokomi',
             name: '珊瑚宮心海',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Hydro'],
             icon: '/images/characters/SangonomiyaKokomi/icon.png',
@@ -721,7 +727,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Yanfei',
             name: '煙緋',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Yanfei/icon.png',
@@ -732,7 +738,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Venti',
             name: 'ウェンティ',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Bow'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Venti/icon.png',
@@ -743,7 +749,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'KaedeharaKazuha',
             name: '楓原万葉',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Sword'],
             type: typeMap['Anemo'],
             icon: '/images/characters/KaedeharaKazuha/icon.png',
@@ -754,7 +760,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Sayu',
             name: '早柚',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Sayu/icon.png',
@@ -765,7 +771,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Thoma',
             name: 'トーマ',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Thoma/icon.png',
@@ -776,7 +782,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Yoimiya',
             name: '宵宮',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Bow'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Yoimiya/icon.png',
@@ -787,7 +793,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Amber',
             name: 'アンバー',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Bow'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Amber/icon.png',
@@ -798,7 +804,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Aloy',
             name: 'アーロイ',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Bow'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Aloy/icon.png',
@@ -809,7 +815,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Klee',
             name: 'クレー',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Pyro'],
             icon: '/images/characters/Klee/icon.png',
@@ -820,7 +826,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Beidou',
             name: '北斗',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Electro'],
             icon: '/images/characters/Beidou/icon.png',
@@ -831,7 +837,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Keqing',
             name: '刻晴',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Sword'],
             type: typeMap['Electro'],
             icon: '/images/characters/Keqing/icon.png',
@@ -842,7 +848,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Kaeya',
             name: 'ガイア',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Sword'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Kaeya/icon.png',
@@ -853,7 +859,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Ningguang',
             name: '凝光',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Geo'],
             icon: '/images/characters/Ningguang/icon.png',
@@ -864,7 +870,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'YaeMiko',
             name: '八重神子',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Electro'],
             icon: '/images/characters/YaeMiko/icon.png',
@@ -875,7 +881,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Eula',
             name: 'エウルア',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Claymore'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Eula/icon.png',
@@ -886,7 +892,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Gorou',
             name: 'ゴロー',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Bow'],
             type: typeMap['Geo'],
             icon: '/images/characters/Gorou/icon.png',
@@ -897,7 +903,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'YunJin',
             name: '雲菫',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Polearm'],
             type: typeMap['Geo'],
             icon: '/images/characters/YunJin/icon.png',
@@ -908,7 +914,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'KujouSara',
             name: '九条裟羅',
-            region: 'InazumaCity',
+            region: regionMap['InazumaCity'],
             weapon: weaponMap['Bow'],
             type: typeMap['Electro'],
             icon: '/images/characters/KujouSara/icon.png',
@@ -919,7 +925,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Lisa',
             name: 'リサ',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Catalyst'],
             type: typeMap['Electro'],
             icon: '/images/characters/Lisa/icon.png',
@@ -930,7 +936,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Qiqi',
             name: '七七',
-            region: 'LiyueHarbor',
+            region: regionMap['LiyueHarbor'],
             weapon: weaponMap['Sword'],
             type: typeMap['Cryo'],
             icon: '/images/characters/Qiqi/icon.png',
@@ -941,7 +947,7 @@ export const initialCharacters: Character[] = [
         {
             id: 'Traveler',
             name: '旅人',
-            region: 'Mondstadt',
+            region: regionMap['Mondstadt'],
             weapon: weaponMap['Sword'],
             type: typeMap['Anemo'],
             icon: '/images/characters/Traveler/icon.png',
