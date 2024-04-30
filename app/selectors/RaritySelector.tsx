@@ -13,7 +13,7 @@ const RaritySelector: React.FC<RaritySelectorProps> = ({ filterRarity, setFilter
             <label className="col-span-2 flex items-center justify-center">
                 <input type="radio" value="" checked={filterRarity === null}
                        onChange={() => setFilterRarity(null)}/>
-                <p className="p-2">全て</p>
+                <p className="p-2 text-white text-opacity-90">全て</p>
             </label>
             {/* 星5 */}
             <label className="col-span-2 flex items-center justify-center">
