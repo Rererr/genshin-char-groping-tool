@@ -54,7 +54,7 @@ export default function CharacterRanking() {
                      minHeight: 'calc(100vh - 40rem)',
                      backgroundImage: `url(${backgroundUrl})`,
                      backgroundSize: 'cover',
-                     backgroundPosition: 'left 45% center'  // 左にずらす調整
+                     backgroundPosition: 'left 30% center'  // 左にずらす調整
                  }}>
                 <RankResult rankedCharacters={rankedCharacters} setRankedCharacters={setRankedCharacters}/>
             </div>
