@@ -90,7 +90,6 @@ export const RankResult = ({rankedCharacters, setRankedCharacters}: RankResultPr
 
     function moveCharacter(oldIndex: number, newIndex: number) {
         if (oldIndex !== newIndex) { // 位置が変更されているか確認
-            console.log(oldIndex, newIndex)
             setRankedCharacters(prevCharacters => {
                 let newCharacters = Array.from(prevCharacters);
                 const [removed] = newCharacters.splice(oldIndex, 1);
