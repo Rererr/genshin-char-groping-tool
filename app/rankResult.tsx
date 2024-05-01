@@ -6,9 +6,10 @@ import {RankingRows} from "@/app/RankingRow";
 interface RankResultProps {
     rankedCharacters: Character[];
     setRankedCharacters: React.Dispatch<React.SetStateAction<Character[]>>;
+    handleCharacterClick: (characterId: string) => void;
 }
 
-export const RankResult = ({rankedCharacters, setRankedCharacters}: RankResultProps) => {
+export const RankResult = ({rankedCharacters, setRankedCharacters, handleCharacterClick}: RankResultProps) => {
     const [placeholderIndex, setPlaceholderIndex] = useState<number | null>(null);
     const [isDragging, setIsDragging] = useState(false);
 
@@ -29,15 +30,22 @@ export const RankResult = ({rankedCharacters, setRankedCharacters}: RankResultPr
         };
     }, [isDragging, disableScroll]);
 
+    const pointerSensorOptions = {
+        activationConstraint: {
+            delay: 75, // 250ミリ秒のディレイを設定
+            tolerance: 5 // ドラッグを開始する前に移動できるピクセル数
+        }
+    };
+
     const touchSensorOptions = {
         activationConstraint: {
-            delay: 250,  // 250ミリ秒のディレイを設定
-            tolerance: 10 // ドラッグを開始する前に移動できるピクセル数
+            delay: 75,  // 250ミリ秒のディレイを設定
+            tolerance: 5 // ドラッグを開始する前に移動できるピクセル数
         }
     };
 
     const sensors = [
-        useSensor(PointerSensor),
+        useSensor(PointerSensor, pointerSensorOptions),
         useSensor(TouchSensor, touchSensorOptions)
     ];
 
@@ -108,7 +116,8 @@ export const RankResult = ({rankedCharacters, setRankedCharacters}: RankResultPr
                     onDragEnd={handleDragEnd}
                     onDragOver={handleDragOver}>
             <div className="grid grid-cols-4 gap-4 place-items-start min-h-80 w-full h-full">
-                <RankingRows characters={rankedCharacters} placeholderIndex={placeholderIndex}/>
+                <RankingRows characters={rankedCharacters} placeholderIndex={placeholderIndex}
+                             handleCharacterClick={handleCharacterClick}/>
             </div>
         </DndContext>
     );

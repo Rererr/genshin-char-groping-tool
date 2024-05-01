@@ -6,17 +6,22 @@ import {CharacterBox} from "@/app/characterBox";
 export const RankingRows: React.FC<{
     characters: Character[];
     placeholderIndex: number | null;
-}> = ({characters, placeholderIndex}) => {
+    handleCharacterClick: (characterId: string) => void;
+}> = ({characters, placeholderIndex, handleCharacterClick}) => {
     return (
         <>
             <RankingRow characters={characters} start={0} end={1}
-                        placeholderIndex={placeholderIndex}/>
+                        placeholderIndex={placeholderIndex}
+                        handleCharacterClick={handleCharacterClick}/>
             <RankingRow characters={characters} start={1} end={3}
-                        placeholderIndex={placeholderIndex}/>
+                        placeholderIndex={placeholderIndex}
+                        handleCharacterClick={handleCharacterClick}/>
             <RankingRow characters={characters} start={3} end={6}
-                        placeholderIndex={placeholderIndex}/>
+                        placeholderIndex={placeholderIndex}
+                        handleCharacterClick={handleCharacterClick}/>
             <RankingRow characters={characters} start={6} end={10}
-                        placeholderIndex={placeholderIndex}/>
+                        placeholderIndex={placeholderIndex}
+                        handleCharacterClick={handleCharacterClick}/>
         </>
     );
 };
@@ -26,6 +31,7 @@ interface RankingRowProps {
     start: number;
     end: number;
     placeholderIndex: number | null;
+    handleCharacterClick: (characterId: string) => void;
 }
 
 const RankingRow: React.FC<RankingRowProps>
@@ -33,13 +39,16 @@ const RankingRow: React.FC<RankingRowProps>
            characters,
            start,
            end,
-           placeholderIndex
+           placeholderIndex,
+           handleCharacterClick
        }) => {
     return (
         <div className="col-start-1 col-span-4 grid grid-cols-4 gap-2 w-full h-full">
             {characters.slice(start, end).map((character, index) => (
                 <DroppableDiv key={character.id} character={character} rank={start + index + 1}
-                              isPlaceholder={start + index === placeholderIndex}/>
+                              isPlaceholder={start + index === placeholderIndex}
+                              handleCharacterClick={handleCharacterClick}
+                />
             ))}
         </div>
     );
@@ -48,14 +57,15 @@ const RankingRow: React.FC<RankingRowProps>
 interface DroppableDivProps {
     character: Character;
     rank: number;
-    moveCharacter?: (dragIndex: number, hoverIndex: number) => void;
+    handleCharacterClick: (characterId: string) => void;
 }
 
 const DroppableDiv: React.FC<DroppableDivProps & { isPlaceholder: boolean }> =
     ({
          character,
          rank,
-         isPlaceholder
+         isPlaceholder,
+         handleCharacterClick
      }) => {
         const {isOver, setNodeRef} = useDroppable({
             id: character.id,
@@ -67,7 +77,7 @@ const DroppableDiv: React.FC<DroppableDivProps & { isPlaceholder: boolean }> =
         };
 
         return (
-            <div ref={setNodeRef} style={style}>
+            <div ref={setNodeRef} style={style} onClick={() => handleCharacterClick(character.id)}>
                 <CharacterBox character={character} rank={rank}/>
             </div>
         );

@@ -61,7 +61,8 @@ export default function CharacterRanking() {
                      backgroundSize: 'cover',
                      backgroundPosition: 'left 30% center'  // 左にずらす調整
                  }}>
-                <RankResult rankedCharacters={rankedCharacters} setRankedCharacters={setRankedCharacters}/>
+                <RankResult rankedCharacters={rankedCharacters} setRankedCharacters={setRankedCharacters}
+                            handleCharacterClick={handleCharacterClick}/>
             </div>
             <div className="pt-4">
                 <button onClick={clearRanking}
