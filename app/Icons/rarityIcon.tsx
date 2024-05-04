@@ -10,7 +10,6 @@ function RarityIcon() {
         <Image src={prefix + '/images/utils/rarityStar.png'} alt='star'
                style={{
                    width: '100%',
-                   borderTopRightRadius: '20px'
                }} sizes='50vw' fill/>
     </div>
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import {Character} from "@/app/lists/characterList";
-import CharacterIcon from "@/app/Icons/characterPoolIcon";
+import CharacterIcon from "@/app/Icons/characterIcon";
 import {useDraggable} from "@dnd-kit/core";
 import {CSS} from "@dnd-kit/utilities";
 
@@ -22,7 +22,7 @@ export function CharacterBox(props: CharacterBoxProps) {
 
     return (
         <div ref={setNodeRef} {...listeners} {...attributes}
-             className="flex flex-col items-center cursor-pointer w-full bg-gray-200 bg-opacity-50"
+             className="flex flex-col items-center cursor-pointer w-full h-full bg-gray-200 bg-opacity-50"
              style={{
                  borderTopRightRadius: '0.5rem',
                  borderBottomLeftRadius: '0.5rem',
@@ -35,7 +35,7 @@ export function CharacterBox(props: CharacterBoxProps) {
                 }}>{rankWithSuffix}</p>
             </div>
             <CharacterIcon src={character.icon} alt={character.name}/>
-            <p className="text-xs font-bold"
+            <p className="text-xs tb:text-sm pc:text-lg font-bold"
                style={{
                    color: 'rgb(229 231 235)',
                    filter: 'invert(100%) grayscale(100%) contrast(100)',

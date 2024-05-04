@@ -8,8 +8,9 @@ function CharacterIcon(
 ) {
     const prefix = process.env.NODE_ENV === 'production' ? '/genshin-char-grouping-tool' : ''
 
-    return <div className="w-full object-cover" style={{
-        minHeight: '5.5rem',
+    return <div className="
+                    w-full h-full object-cover
+                " style={{
         display: 'block',
         position: 'relative',
     }}>

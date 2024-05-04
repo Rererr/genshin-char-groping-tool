@@ -43,7 +43,11 @@ const RankingRow: React.FC<RankingRowProps>
            handleCharacterClick
        }) => {
     return (
-        <div className="col-start-1 col-span-4 grid grid-cols-4 gap-2 w-full h-full">
+        <div className="
+                    col-start-1 col-span-4
+                    grid grid-cols-4 gap-2 tb:gap-3 pc:gap-6
+                    w-full spl:max-w-96 tb:max-w-screen-spl
+                    h-36 pc:h-48">
             {characters.slice(start, end).map((character, index) => (
                 <DroppableDiv key={character.id} character={character} rank={start + index + 1}
                               isPlaceholder={start + index === placeholderIndex}
@@ -77,7 +81,12 @@ const DroppableDiv: React.FC<DroppableDivProps & { isPlaceholder: boolean }> =
         };
 
         return (
-            <div ref={setNodeRef} style={style} onClick={() => handleCharacterClick(character.id)}>
+            <div ref={setNodeRef} style={style} onClick={() => handleCharacterClick(character.id)}
+                 className="
+                        relative flex items-center justify-center
+                        w-22 spl:w-24 h-34 pc:w-32 pc:h-48
+                        bg-white bg-opacity-10 rounded-lg cursor-pointer"
+            >
                 <CharacterBox character={character} rank={rank}/>
             </div>
         );
