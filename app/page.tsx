@@ -65,7 +65,7 @@ export default function CharacterRanking() {
             </div>
             <div id="rankingResult"
                  className="pt-2 flex justify-center
-                    max-h-rank-result pc:max-h-rank-result-pc"
+                    max-h-rank-result tb:max-h-rank-result-tb pc:max-h-rank-result-pc"
                  style={{
                      minHeight: '600px',
                      width: '92vw',

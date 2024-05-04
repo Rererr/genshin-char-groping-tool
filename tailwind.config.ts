@@ -30,6 +30,7 @@ const config: Config = {
             },
             maxHeight: {
                 'rank-result': '600px', // ランク結果の高さ
+                'rank-result-tb': '800px', // ランク結果の高さ(tb)
                 'rank-result-pc': '1200px', // ランク結果の高さ(pc)
             },
             gridTemplateColumns: {
