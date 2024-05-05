@@ -41,7 +41,7 @@ export default function CharacterRanking() {
         <div className="
             flex flex-col
             justify-center
-            p-4
+            p-2
             h-full
             w-full
             "
@@ -68,7 +68,7 @@ export default function CharacterRanking() {
                     max-h-rank-result tb:max-h-rank-result-tb pc:max-h-rank-result-pc"
                  style={{
                      minHeight: '600px',
-                     width: '92vw',
+                     width: '98vw',
                      backgroundImage: `url(${backgroundUrl})`,
                      backgroundSize: 'cover',
                      backgroundPosition: 'left 30% bottom 80%',

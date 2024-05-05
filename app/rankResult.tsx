@@ -115,9 +115,10 @@ export const RankResult = ({rankedCharacters, setRankedCharacters, handleCharact
                     onDragStart={handleDragStart}
                     onDragEnd={handleDragEnd}
                     onDragOver={handleDragOver}>
-            <div className="grid grid-rows-4 grid-cols-4 gap-4 place-items-start w-full"
+            <div className="grid grid-rows-4 grid-cols-4 gap-4 place-items-start"
             style={{
                 minHeight: '600px',
+                width: '95vw',
             }}>
                 <RankingRows characters={rankedCharacters} placeholderIndex={placeholderIndex}
                              handleCharacterClick={handleCharacterClick}/>
