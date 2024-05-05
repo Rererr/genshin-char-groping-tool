@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {DndContext, PointerSensor, TouchSensor, useSensor} from "@dnd-kit/core";
-import {Character} from "@/app/lists/characterList";
 import {RankingRows} from "@/app/RankingRow";
+import {Character} from "@/app/interfaces/character";
 
 interface RankResultProps {
     rankedCharacters: Character[];
@@ -9,9 +9,13 @@ interface RankResultProps {
     handleCharacterClick: (characterId: string) => void;
 }
 
-export const RankResult = ({rankedCharacters, setRankedCharacters, handleCharacterClick}: RankResultProps) => {
-    const [placeholderIndex, setPlaceholderIndex] = useState<number | null>(null);
+export const RankResult = ({
+                               rankedCharacters,
+                               setRankedCharacters,
+                               handleCharacterClick
+                           }: RankResultProps) => {
     const [isDragging, setIsDragging] = useState(false);
+    const [placeholderIndex, setPlaceholderIndex] = useState<number | null>(null);
 
     // スクロール禁止の関数をuseCallbackでメモ化
     const disableScroll = useCallback((event: { preventDefault: () => void; }) => {
@@ -116,10 +120,10 @@ export const RankResult = ({rankedCharacters, setRankedCharacters, handleCharact
                     onDragEnd={handleDragEnd}
                     onDragOver={handleDragOver}>
             <div className="grid grid-rows-4 grid-cols-4 gap-4 place-items-start"
-            style={{
-                minHeight: '600px',
-                width: '95vw',
-            }}>
+                 style={{
+                     minHeight: '600px',
+                     width: '95vw',
+                 }}>
                 <RankingRows characters={rankedCharacters} placeholderIndex={placeholderIndex}
                              handleCharacterClick={handleCharacterClick}/>
             </div>

@@ -9,16 +9,11 @@ function CharacterIcon(
     const prefix = process.env.NODE_ENV === 'production' ? '/genshin-char-grouping-tool' : ''
 
     return <div className="
-                    w-full h-full object-cover
-                " style={{
-        display: 'block',
-        position: 'relative',
-    }}>
+                    w-full h-full block relative overflow-hidden
+                ">
         <Image src={prefix + props.src} alt={props.alt}
-               style={{
-                   width: '100%',
-                   borderTopRightRadius: '20px'
-               }} sizes='50vw' fill/>
+               className="w-full h-full object-cover" sizes='100vw' fill
+               draggable={false}/>
     </div>
 }
 

@@ -1,8 +1,4 @@
-export interface Region {
-    id: string;
-    name: string;
-    image: string;
-}
+import {Region} from "@/app/interfaces/region";
 
 export const initialRegions: Region[] = [
     {id: 'Mondstadt', name: 'モンド', image: '/images/regions/mondstadt.png'},

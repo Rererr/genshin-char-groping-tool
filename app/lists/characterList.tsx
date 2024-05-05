@@ -1,18 +1,8 @@
 import {Weapon, initialWeapons} from "@/app/lists/weaponList";
 import {initialTypes, Type} from "@/app/lists/typeList";
-import {initialRegions, Region} from "@/app/lists/regionList";
-
-export interface Character {
-    id: string;
-    name: string;
-    region: Region;
-    weapon: Weapon;
-    type: Type;
-    icon: string;
-    splashArt: string;
-    rarity: number;
-    rank: number;
-}
+import {initialRegions} from "@/app/lists/regionList";
+import {Region} from "@/app/interfaces/region";
+import {Character} from "@/app/interfaces/character";
 
 const regionMap: Record<string, Region> = initialRegions.reduce((map, region) => {
     map[region.id] = region;

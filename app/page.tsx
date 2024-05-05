@@ -1,31 +1,47 @@
 "use client";
 import {useState} from 'react';
-import {Character, initialCharacters} from './lists/characterList';
+import {initialCharacters} from './lists/characterList';
 import {RankResult} from './rankResult';
 import {CharacterPool} from './characterPool';
+import {Character, createDummyCharacter, createDummyCharacters} from "@/app/interfaces/character";
 
 export default function CharacterRanking() {
     const prefix = process.env.NODE_ENV === 'production' ? '/genshin-char-grouping-tool' : '';
 
-    const [rankedCharacters, setRankedCharacters] = useState<Character[]>([]);
+    // 最初から空欄埋めた10キャラでランキングを作成
+    const [rankedCharacters, setRankedCharacters] = useState<Character[]>(createDummyCharacters(10));
 
     const handleCharacterClick = (characterId: string) => {
         const characterInRank = rankedCharacters.find(c => c.id === characterId);
 
-        // 10人以上はランクリストに追加できない
-        if (rankedCharacters.length >= 10 && !characterInRank) {
-            alert('ランキングには10人までしか追加できません');
-            return;
-        }
+        if (!characterInRank) {
+            // キャラクターがランキングに存在しない場合
+            const dummyIndex = rankedCharacters.findIndex(c => c.id.startsWith('dummy'));
+            if (dummyIndex === -1 && rankedCharacters.length >= 10) {
+                alert('ランキングには10人までしか追加できません');
+                return;
+            }
 
-        if (characterInRank) {
-            setRankedCharacters(currentRanked => currentRanked.filter(c => c.id !== characterId));
-        } else {
-            // プールからランクリストに追加、プールはそのまま
             const characterToAdd = initialCharacters.find(c => c.id === characterId);
             if (characterToAdd) {
-                setRankedCharacters(currentRanked => [...currentRanked, characterToAdd]);
+                setRankedCharacters(currentRanked => {
+                    const newRanked = [...currentRanked];
+                    if (dummyIndex !== -1) {
+                        newRanked[dummyIndex] = characterToAdd;  // ダミーの位置に追加
+                    } else {
+                        newRanked.push(characterToAdd);  // リストの末尾に追加
+                    }
+                    return newRanked;
+                });
             }
+        } else {
+            // キャラクターがランキングに存在する場合
+            setRankedCharacters(currentRanked => {
+                const index = currentRanked.findIndex(c => c.id === characterId);
+                const newRanked = [...currentRanked];
+                newRanked[index] = createDummyCharacter();  // その位置に新しいダミーキャラクターを挿入
+                return newRanked;
+            });
         }
     };
 

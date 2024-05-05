@@ -1,8 +1,8 @@
 import React from "react";
-import {Character} from "@/app/lists/characterList";
 import CharacterIcon from "@/app/Icons/characterIcon";
 import {useDraggable} from "@dnd-kit/core";
 import {CSS} from "@dnd-kit/utilities";
+import {Character, isDummyCharacter} from "@/app/interfaces/character";
 
 interface CharacterBoxProps {
     character: Character;
@@ -22,24 +22,20 @@ export function CharacterBox(props: CharacterBoxProps) {
 
     return (
         <div ref={setNodeRef} {...listeners} {...attributes}
-             className="flex flex-col items-center cursor-pointer w-full h-full bg-gray-200 bg-opacity-50"
-             style={{
-                 borderTopRightRadius: '0.5rem',
-                 borderBottomLeftRadius: '0.5rem',
-                 ...style,
-             }}>
+             className={`
+             flex flex-col items-center cursor-pointer
+             w-full h-full rounded-tr-lg rounded-bl-lg
+             ${isDummyCharacter(character) ? 'bg-gray-400 bg-opacity-15' : 'bg-gray-200 bg-opacity-50'}
+             `}
+             style={{...style}}>
             <div className="text-lg font-bold">
-                <p style={{
-                    color: 'rgb(229 231 235)',
-                    filter: 'invert(100%) grayscale(100%) contrast(100)',
-                }}>{rankWithSuffix}</p>
+                <p className={`
+                        text-gray-200 contrast-100 grayscale invert
+                        ${isDummyCharacter(character) ? 'text-opacity-0' : 'text-opacity-100'}
+                    `}>{rankWithSuffix}</p>
             </div>
-            <CharacterIcon src={character.icon} alt={character.name}/>
-            <p className="text-xs tb:text-sm pc:text-lg font-bold"
-               style={{
-                   color: 'rgb(229 231 235)',
-                   filter: 'invert(100%) grayscale(100%) contrast(100)',
-               }}>{character.name}</p>
+            {isDummyCharacter(character) ? '' : <CharacterIcon src={character.icon} alt={character.name}/>}
+            <p className="text-xs tb:text-sm pc:text-lg font-bold text-gray-200 contrast-100 grayscale invert">{character.name}</p>
         </div>
     );
 }

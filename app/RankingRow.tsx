@@ -1,7 +1,7 @@
-import {Character} from "@/app/lists/characterList";
 import React from "react";
 import {useDroppable} from "@dnd-kit/core";
 import {CharacterBox} from "@/app/characterBox";
+import {Character, isDummyCharacter} from "@/app/interfaces/character";
 
 export const RankingRows: React.FC<{
     characters: Character[];
@@ -46,7 +46,7 @@ const RankingRow: React.FC<RankingRowProps>
         <div className="
                     col-start-1 col-span-4
                     grid grid-cols-4 gap-2 tb:gap-3 pc:gap-6
-                    w-full spl:max-w-96 tb:max-w-screen-spl
+                    spl:max-w-96 tb:max-w-screen-spl
                     h-36 tb:h-40 pc:h-48">
             {characters.slice(start, end).map((character, index) => (
                 <DroppableDiv key={character.id} character={character} rank={start + index + 1}
@@ -82,10 +82,11 @@ const DroppableDiv: React.FC<DroppableDivProps & { isPlaceholder: boolean }> =
 
         return (
             <div ref={setNodeRef} style={style} onClick={() => handleCharacterClick(character.id)}
-                 className="
+                 className={`
                         relative flex items-center justify-center
                         w-22 spl:w-24 h-34 tb:w-28 tb:h-40 pc:w-32 pc:h-48
-                        bg-white bg-opacity-10 rounded-lg cursor-pointer"
+                        ${isDummyCharacter(character) ? 'bg-gray-500 bg-opacity-20' : 'bg-white bg-opacity-10'}
+                        rounded-lg cursor-pointer`}
             >
                 <CharacterBox character={character} rank={rank}/>
             </div>

@@ -1,8 +1,4 @@
-export interface Weapon {
-    id: string;
-    name: string;
-    image: string;
-}
+import {Weapon} from "@/app/interfaces/weapon";
 
 export const initialWeapons: Weapon[] = [
     {id: 'Sword', name: '片手剣', image: '/images/weapons/sword.png'},

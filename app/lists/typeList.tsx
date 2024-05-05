@@ -1,8 +1,4 @@
-export interface Type {
-    id: string;
-    name: string;
-    image: string;
-}
+import {Type} from "@/app/interfaces/type";
 
 export const initialTypes: Type[] = [
     {id: 'Pyro', name: '炎', image: '/images/types/pyro.png'},
