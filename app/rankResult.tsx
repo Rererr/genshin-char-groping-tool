@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {DndContext, PointerSensor, TouchSensor, useSensor} from "@dnd-kit/core";
-import {RankingRows} from "@/app/RankingRow";
 import {Character} from "@/app/interfaces/character";
+import {RankingRows} from "@/app/rankingRow";
 
 interface RankResultProps {
     rankedCharacters: Character[];
@@ -36,14 +36,14 @@ export const RankResult = ({
 
     const pointerSensorOptions = {
         activationConstraint: {
-            delay: 75, // 250ミリ秒のディレイを設定
+            delay: 25, // 25ミリ秒のディレイを設定
             tolerance: 5 // ドラッグを開始する前に移動できるピクセル数
         }
     };
 
     const touchSensorOptions = {
         activationConstraint: {
-            delay: 75,  // 250ミリ秒のディレイを設定
+            delay: 10,  // 10ミリ秒のディレイを設定
             tolerance: 5 // ドラッグを開始する前に移動できるピクセル数
         }
     };

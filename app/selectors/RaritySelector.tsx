@@ -1,5 +1,5 @@
 import React from 'react';
-import RarityIcon from "@/app/Icons/rarityIcon";
+import RarityIcon from "@/app/icons/rarityIcon";
 
 interface RaritySelectorProps {
     filterRarity: number | null;
