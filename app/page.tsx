@@ -12,6 +12,7 @@ export default function CharacterRanking() {
     const [rankedCharacters, setRankedCharacters] = useState<Character[]>(createDummyCharacters(10));
 
     const handleCharacterClick = (characterId: string) => {
+        console.log('characterId:', characterId);
         const characterInRank = rankedCharacters.find(c => c.id === characterId);
 
         if (!characterInRank) {

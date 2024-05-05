@@ -36,14 +36,14 @@ export const RankResult = ({
 
     const pointerSensorOptions = {
         activationConstraint: {
-            delay: 25, // 25ミリ秒のディレイを設定
+            delay: 80, // 25ミリ秒のディレイを設定
             tolerance: 5 // ドラッグを開始する前に移動できるピクセル数
         }
     };
 
     const touchSensorOptions = {
         activationConstraint: {
-            delay: 10,  // 10ミリ秒のディレイを設定
+            delay: 30,  // 10ミリ秒のディレイを設定
             tolerance: 5 // ドラッグを開始する前に移動できるピクセル数
         }
     };
@@ -54,6 +54,7 @@ export const RankResult = ({
     ];
 
     function handleDragStart(event: any) {
+        console.log('drag start');
         setIsDragging(true);
     }
 
