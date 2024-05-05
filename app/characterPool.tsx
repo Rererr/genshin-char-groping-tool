@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {Character} from '@/app/lists/characterList';
 import {initialWeapons} from "@/app/lists/weaponList";
 import {initialTypes} from "@/app/lists/typeList";
 import CharacterIcon from "@/app/Icons/characterIcon";
@@ -7,6 +6,7 @@ import RaritySelector from "@/app/selectors/RaritySelector";
 import ItemSelector from "@/app/selectors/ItemSelector";
 import {initialRegions} from "@/app/lists/regionList";
 import SelectItemIcon from "@/app/Icons/selectItemIcon";
+import {Character} from "@/app/interfaces/character";
 
 interface CharacterPoolProps {
     characters: Character[];
