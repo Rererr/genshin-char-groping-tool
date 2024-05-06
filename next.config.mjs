@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+/** @types {import('next').NextConfig} */
 const urlPrefix = process.env.URL_PREFIX ? '/' + process.env.URL_PREFIX : ''
 
 const nextConfig = {

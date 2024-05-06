@@ -34,8 +34,12 @@ const config: Config = {
                 'rank-result-pc': '1200px', // ランク結果の高さ(pc)
             },
             gridTemplateColumns: {
+                '14': 'repeat(14, minmax(0, 1fr))',
                 '15': 'repeat(15, minmax(0, 1fr))',
                 '17': 'repeat(17, minmax(0, 1fr))',
+            },
+            skew: {
+                '24': '24deg',
             },
         },
         screens: {

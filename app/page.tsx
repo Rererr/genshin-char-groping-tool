@@ -1,18 +1,33 @@
 "use client";
-import {useState} from 'react';
-import {initialCharacters} from './lists/characterList';
-import {RankResult} from './rankResult';
-import {CharacterPool} from './characterPool';
-import {Character, createDummyCharacter, createDummyCharacters} from "@/app/interfaces/character";
+import {useEffect, useState} from 'react';
+import {initialCharacters as initialGenshinCharacter} from '@/app/genshin/lists/characterList';
+import {initialCharacters as initialHsrCharacter} from '@/app/hsr/lists/characterList';
+import {RankResult} from './common/rankResult';
+import {CharacterPool as GenshinCharacterPool} from './genshin/characterPool';
+import {CharacterPool as HsrCharacterPool} from './hsr/characterPool';
+import {
+    Character as GenshinCharacter,
+    createDummyCharacters as createGenshinCharacters
+} from "@/app/genshin/interfaces/character";
+import {Character as HsrCharacter, createDummyCharacters as createHsrCharacters} from "@/app/hsr/interfaces/character";
+import {createDummyCharacter} from "@/app/common/interfaces/baseCharacter";
 
 export default function CharacterRanking() {
     const prefix = process.env.NODE_ENV === 'production' ? '/genshin-char-grouping-tool' : '';
 
+    const [viewType, setViewType] = useState<'genshin' | 'hsr'>('genshin');
+
     // 最初から空欄埋めた10キャラでランキングを作成
-    const [rankedCharacters, setRankedCharacters] = useState<Character[]>(createDummyCharacters(10));
+    const [rankedCharacters, setRankedCharacters] = useState<GenshinCharacter[] | HsrCharacter[]>(createGenshinCharacters(10));
+    useEffect(() => {
+        if (viewType === 'genshin') {
+            setRankedCharacters(createGenshinCharacters(10));
+        } else {
+            setRankedCharacters(createHsrCharacters(10));
+        }
+    }, [viewType]);
 
     const handleCharacterClick = (characterId: string) => {
-        console.log('characterId:', characterId);
         const characterInRank = rankedCharacters.find(c => c.id === characterId);
 
         if (!characterInRank) {
@@ -23,24 +38,29 @@ export default function CharacterRanking() {
                 return;
             }
 
-            const characterToAdd = initialCharacters.find(c => c.id === characterId);
+            const characterToAdd = viewType === 'genshin' ? initialGenshinCharacter.find(c => c.id === characterId) : initialHsrCharacter.find(c => c.id === characterId);
+
             if (characterToAdd) {
-                setRankedCharacters(currentRanked => {
+                setRankedCharacters((currentRanked: any) => {
                     const newRanked = [...currentRanked];
                     if (dummyIndex !== -1) {
-                        newRanked[dummyIndex] = characterToAdd;  // ダミーの位置に追加
+                        newRanked[dummyIndex] = characterToAdd;
                     } else {
-                        newRanked.push(characterToAdd);  // リストの末尾に追加
+                        newRanked.push(characterToAdd);
                     }
                     return newRanked;
                 });
             }
         } else {
             // キャラクターがランキングに存在する場合
-            setRankedCharacters(currentRanked => {
-                const index = currentRanked.findIndex(c => c.id === characterId);
+            setRankedCharacters((currentRanked: any) => {
+                const index = currentRanked.findIndex((c: { id: string; }) => c.id === characterId);
                 const newRanked = [...currentRanked];
-                newRanked[index] = createDummyCharacter();  // その位置に新しいダミーキャラクターを挿入
+                if (viewType === 'genshin') {
+                    newRanked[index] = createDummyCharacter('genshin') as GenshinCharacter;  // ダミーキャラクターに置き換え
+                } else {
+                    newRanked[index] = createDummyCharacter('hsr') as HsrCharacter;  // ダミーキャラクターに置き換え
+                }
                 return newRanked;
             });
         }
@@ -48,11 +68,12 @@ export default function CharacterRanking() {
 
     // 選択されたキャラクターのリストの全削除
     const clearRanking = () => {
-        setRankedCharacters([]);
+        setRankedCharacters(viewType === 'genshin' ? createGenshinCharacters(10) : createHsrCharacters(10));
     };
 
+    const backgroundUrl = viewType === 'genshin' ? prefix + '/images/genshin/utils/galaxy.png' : prefix + '/images/hsr/utils/galaxy.jpeg';
     // 1位のキャラクターのsplashArtを取得
-    const backgroundUrl = rankedCharacters.length > 0 ? prefix + rankedCharacters[0].splashArt : '';
+    const rankingBackgroundUrl = rankedCharacters.length > 0 ? prefix + rankedCharacters[0].splashArt : '';
 
     return (
         <div className="
@@ -63,12 +84,30 @@ export default function CharacterRanking() {
             w-full
             "
              style={{
-                 backgroundImage: `url(${prefix + '/images/utils/galaxy.png'})`,
+                 backgroundImage: `url(${backgroundUrl})`,
                  backgroundSize: 'cover',
                  backgroundPosition: 'center',
              }}>
-            <CharacterPool characters={initialCharacters} rankedCharacters={rankedCharacters}
-                           onCharacterClick={handleCharacterClick}/>
+            <div className="flex justify-center h-8 space-x-0.5">
+                <button
+                    className="bg-gray-500 bg-opacity-50 hover:bg-gray-700 w-24 h-6 transform -skew-x-24"
+                    onClick={() => setViewType('genshin')}>
+                    <span className="inline-block text-white text-sm transform skew-x-24">原神</span>
+                </button>
+                <button
+                    className="bg-gray-500 bg-opacity-50 hover:bg-gray-700 w-24 h-6 transform -skew-x-24"
+                    onClick={() => setViewType('hsr')}>
+                    <span className="inline-block text-white text-sm transform skew-x-24">スターレイル</span>
+                </button>
+            </div>
+
+            {viewType === 'genshin' ? (
+                <GenshinCharacterPool characters={initialGenshinCharacter} rankedCharacters={rankedCharacters as GenshinCharacter[]}
+                                 onCharacterClick={handleCharacterClick}/>
+            ) : (
+                <HsrCharacterPool characters={initialHsrCharacter} rankedCharacters={rankedCharacters as HsrCharacter[]}
+                                 onCharacterClick={handleCharacterClick}/>
+            )}
             <div className="pt-4 flex justify-center w-full">
                 <input
                     type="text"
@@ -86,12 +125,12 @@ export default function CharacterRanking() {
                  style={{
                      minHeight: '600px',
                      width: '98vw',
-                     backgroundImage: `url(${backgroundUrl})`,
+                     backgroundImage: `url(${rankingBackgroundUrl})`,
                      backgroundSize: 'cover',
                      backgroundPosition: 'left 30% bottom 80%',
                      backgroundRepeat: 'no-repeat',
                  }}>
-                <RankResult rankedCharacters={rankedCharacters} setRankedCharacters={setRankedCharacters}
+                <RankResult viewType={viewType} rankedCharacters={rankedCharacters} setRankedCharacters={setRankedCharacters}
                             handleCharacterClick={handleCharacterClick}/>
             </div>
             <div className="pt-4 w-full">
