@@ -20,8 +20,7 @@ const ItemSelector: React.FC<ItemSelectorProps> = ({
                                                        IconComponent
                                                    }) => {
     return (
-        <div className={`
-            grid
+        <div className={`grid
             gap-2
             h-12 tb:h-20
             w-full

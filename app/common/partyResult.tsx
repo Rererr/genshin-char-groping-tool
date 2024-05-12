@@ -2,25 +2,25 @@ import React, {useCallback, useContext, useEffect, useState} from 'react';
 import {DndContext, PointerSensor, TouchSensor, useSensor} from "@dnd-kit/core";
 import {Character as GenshinCharacter} from "@/app/genshin/interfaces/character";
 import {Character as HsrCharacter} from "@/app/hsr/interfaces/character";
-import {RankingRows} from "@/app/common/rankingRow";
+import {PartyRows} from "@/app/common/partyRow";
 import {GameTypeContext} from "@/app/common/contexts/GameTypeContext";
 
-interface RankResultProps {
+interface PartyResultProps {
     rankedCharacters: GenshinCharacter[] | HsrCharacter[];
     setRankedCharacters: React.Dispatch<React.SetStateAction<GenshinCharacter[] | HsrCharacter[]>>;
     handleCharacterClick: (characterId: string) => void;
 }
 
-export const RankResult = ({
+export const PartyResult = ({
                                rankedCharacters,
                                setRankedCharacters,
                                handleCharacterClick
-                           }: RankResultProps) => {
+                           }: PartyResultProps) => {
     const [isDragging, setIsDragging] = useState(false);
     const [placeholderIndex, setPlaceholderIndex] = useState<number | null>(null);
 
     const gameType = useContext(GameTypeContext);
-
+    
     // スクロール禁止の関数をuseCallbackでメモ化
     const disableScroll = useCallback((event: { preventDefault: () => void; }) => {
         event.preventDefault();
@@ -137,12 +137,16 @@ export const RankResult = ({
                     onDragStart={handleDragStart}
                     onDragEnd={handleDragEnd}
                     onDragOver={handleDragOver}>
-            <div className="grid grid-rows-4 grid-cols-4 gap-4 place-items-start"
+            <div className="
+                    pt-4
+                    grid grid-rows-2 grid-cols-1
+                    place-items-start
+                    spl:w-full spl:max-w-screen-spl tb:w-full tb:max-w-screen-spl pc:w-full pc:max-w-screen-pc"
                  style={{
                      minHeight: '600px',
                      width: '95vw',
                  }}>
-                <RankingRows characters={rankedCharacters} placeholderIndex={placeholderIndex}
+                <PartyRows characters={rankedCharacters} placeholderIndex={placeholderIndex}
                              handleCharacterClick={handleCharacterClick}/>
             </div>
         </DndContext>

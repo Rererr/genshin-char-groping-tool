@@ -1,4 +1,5 @@
 "use client";
+
 import {useEffect, useState} from 'react';
 import {initialCharacters as initialGenshinCharacter} from '@/app/genshin/lists/characterList';
 import {initialCharacters as initialHsrCharacter} from '@/app/hsr/lists/characterList';
@@ -11,21 +12,33 @@ import {
 } from "@/app/genshin/interfaces/character";
 import {Character as HsrCharacter, createDummyCharacters as createHsrCharacters} from "@/app/hsr/interfaces/character";
 import {createDummyCharacter} from "@/app/common/interfaces/baseCharacter";
+import {PartyResult} from "@/app/common/partyResult";
+import {GameTypeContext} from "@/app/common/contexts/GameTypeContext";
+import {ToolTypeContext} from "@/app/common/contexts/ToolTypeContext";
 
 export default function CharacterRanking() {
     const prefix = process.env.NODE_ENV === 'production' ? '/genshin-char-grouping-tool' : '';
 
-    const [viewType, setViewType] = useState<'genshin' | 'hsr'>('genshin');
+    const [gameType, setGameType] = useState<'genshin' | 'hsr'>('genshin');
+    const [toolType, setToolType] = useState<'ranking' | 'party'>('ranking');
 
     // 最初から空欄埋めた10キャラでランキングを作成
     const [rankedCharacters, setRankedCharacters] = useState<GenshinCharacter[] | HsrCharacter[]>(createGenshinCharacters(10));
     useEffect(() => {
-        if (viewType === 'genshin') {
+        if (gameType === 'genshin') {
             setRankedCharacters(createGenshinCharacters(10));
         } else {
             setRankedCharacters(createHsrCharacters(10));
         }
-    }, [viewType]);
+    }, [gameType]);
+
+    useEffect(() => {
+        const titleInput = document.getElementById('title') as HTMLInputElement;
+
+        if (titleInput) {
+            titleInput.value = '';
+        }
+    }, [toolType]);
 
     const handleCharacterClick = (characterId: string) => {
         const characterInRank = rankedCharacters.find(c => c.id === characterId);
@@ -38,7 +51,7 @@ export default function CharacterRanking() {
                 return;
             }
 
-            const characterToAdd = viewType === 'genshin' ? initialGenshinCharacter.find(c => c.id === characterId) : initialHsrCharacter.find(c => c.id === characterId);
+            const characterToAdd = gameType === 'genshin' ? initialGenshinCharacter.find(c => c.id === characterId) : initialHsrCharacter.find(c => c.id === characterId);
 
             if (characterToAdd) {
                 setRankedCharacters((currentRanked: any) => {
@@ -56,7 +69,7 @@ export default function CharacterRanking() {
             setRankedCharacters((currentRanked: any) => {
                 const index = currentRanked.findIndex((c: { id: string; }) => c.id === characterId);
                 const newRanked = [...currentRanked];
-                if (viewType === 'genshin') {
+                if (gameType === 'genshin') {
                     newRanked[index] = createDummyCharacter('genshin') as GenshinCharacter;  // ダミーキャラクターに置き換え
                 } else {
                     newRanked[index] = createDummyCharacter('hsr') as HsrCharacter;  // ダミーキャラクターに置き換え
@@ -68,13 +81,12 @@ export default function CharacterRanking() {
 
     // 選択されたキャラクターのリストの全削除
     const clearRanking = () => {
-        setRankedCharacters(viewType === 'genshin' ? createGenshinCharacters(10) : createHsrCharacters(10));
+        setRankedCharacters(gameType === 'genshin' ? createGenshinCharacters(10) : createHsrCharacters(10));
     };
 
-    const backgroundUrl = viewType === 'genshin' ? prefix + '/images/genshin/utils/galaxy.png' : prefix + '/images/hsr/utils/galaxy.jpeg';
+    const backgroundUrl = gameType === 'genshin' ? prefix + '/images/genshin/utils/galaxy.png' : prefix + '/images/hsr/utils/galaxy.jpeg';
     // 1位のキャラクターのsplashArtを取得
-    const rankingBackgroundUrl = rankedCharacters.length > 0 ? prefix + rankedCharacters[0].splashArt : '';
-
+    const rankingBackgroundUrl = (toolType === 'ranking' && rankedCharacters.length > 0) ? `${prefix}${rankedCharacters[0].splashArt}` : '';
     return (
         <div className="
             flex flex-col
@@ -88,57 +100,86 @@ export default function CharacterRanking() {
                  backgroundSize: 'cover',
                  backgroundPosition: 'center',
              }}>
-            <div className="flex justify-center h-8 space-x-0.5">
-                <button
-                    className="bg-gray-500 bg-opacity-50 hover:bg-gray-700 w-24 h-6 transform -skew-x-24"
-                    onClick={() => setViewType('genshin')}>
-                    <span className="inline-block text-white text-sm transform skew-x-24">原神</span>
-                </button>
-                <button
-                    className="bg-gray-500 bg-opacity-50 hover:bg-gray-700 w-24 h-6 transform -skew-x-24"
-                    onClick={() => setViewType('hsr')}>
-                    <span className="inline-block text-white text-sm transform skew-x-24">スターレイル</span>
-                </button>
-            </div>
+            <GameTypeContext.Provider value={gameType}>
+                <ToolTypeContext.Provider value={toolType}>
+                    <div className="flex justify-center h-8 space-x-0.5">
+                        <button
+                            className="bg-gray-500 bg-opacity-50 hover:bg-gray-700 w-24 h-6 transform -skew-x-24"
+                            onClick={() => setGameType('genshin')}>
+                            <span className="inline-block text-white text-sm transform skew-x-24">原神</span>
+                        </button>
+                        <button
+                            className="bg-gray-500 bg-opacity-50 hover:bg-gray-700 w-24 h-6 transform -skew-x-24"
+                            onClick={() => setGameType('hsr')}>
+                            <span className="inline-block text-white text-sm transform skew-x-24">スターレイル</span>
+                        </button>
+                    </div>
 
-            {viewType === 'genshin' ? (
-                <GenshinCharacterPool characters={initialGenshinCharacter} rankedCharacters={rankedCharacters as GenshinCharacter[]}
-                                 onCharacterClick={handleCharacterClick}/>
-            ) : (
-                <HsrCharacterPool characters={initialHsrCharacter} rankedCharacters={rankedCharacters as HsrCharacter[]}
-                                 onCharacterClick={handleCharacterClick}/>
-            )}
-            <div className="pt-4 flex justify-center w-full">
-                <input
-                    type="text"
-                    className="pb-1
-                    bg-transparent border-b-2 border-white border-opacity-90
-                    text-white text-opacity-90 text-center
-                    text-md tb:text-lg pc:text-2xl
-                    font-bold placeholder-gray-500 placeholder-opacity-80 focus:outline-none w-full spl:w-96"
-                    placeholder="ランキングタイトル"
-                    maxLength={30}/>
-            </div>
-            <div id="rankingResult"
-                 className="pt-2 flex justify-center
-                    max-h-rank-result tb:max-h-rank-result-tb pc:max-h-rank-result-pc"
-                 style={{
-                     minHeight: '600px',
-                     width: '98vw',
-                     backgroundImage: `url(${rankingBackgroundUrl})`,
-                     backgroundSize: 'cover',
-                     backgroundPosition: 'left 30% bottom 80%',
-                     backgroundRepeat: 'no-repeat',
-                 }}>
-                <RankResult viewType={viewType} rankedCharacters={rankedCharacters} setRankedCharacters={setRankedCharacters}
-                            handleCharacterClick={handleCharacterClick}/>
-            </div>
-            <div className="pt-4 w-full">
-                <button onClick={clearRanking}
-                        className="w-full bg-blue-300 bg-opacity-50 text-white text-opacity-90 text-center font-bold py-2 rounded-md">
-                    ランキングをクリア
-                </button>
-            </div>
+                    {gameType === 'genshin' ? (
+                        <GenshinCharacterPool characters={initialGenshinCharacter}
+                                              rankedCharacters={rankedCharacters as GenshinCharacter[]}
+                                              onCharacterClick={handleCharacterClick}/>
+                    ) : (
+                        <HsrCharacterPool characters={initialHsrCharacter}
+                                          rankedCharacters={rankedCharacters as HsrCharacter[]}
+                                          onCharacterClick={handleCharacterClick}/>
+                    )}
+                    <div className="p-4 flex justify-center h-8 space-x-0.5">
+                        <button
+                            className="bg-gray-500 bg-opacity-50 hover:bg-gray-700 w-24 h-6 transform skew-x-24"
+                            onClick={() => setToolType('ranking')}>
+                            <span className="inline-block text-white text-sm transform -skew-x-24">ランキング</span>
+                        </button>
+                        <button
+                            className="bg-gray-500 bg-opacity-50 hover:bg-gray-700 w-24 h-6 transform skew-x-24"
+                            onClick={() => setToolType('party')}>
+                            <span className="inline-block text-white text-sm transform -skew-x-24">パーティ編成</span>
+                        </button>
+                    </div>
+                    <div className="pt-4 flex justify-center w-full">
+                        <input
+                            id="title"
+                            type="text"
+                            className="p-1
+                                bg-transparent border-b-2 border-white border-opacity-90
+                                text-white text-opacity-90 text-center
+                                text-lg tb:text-lg pc:text-2xl
+                                font-bold placeholder-gray-500 placeholder-opacity-80 focus:outline-none w-full spl:w-96"
+                            placeholder="タイトル"
+                            maxLength={30}
+                        />
+                    </div>
+                    <div id="result"
+                         className="pt-2 pr-2
+                                flex justify-center
+                                max-h-rank-result tb:max-h-rank-result-tb pc:max-h-rank-result-pc
+                            "
+                         style={{
+                             backgroundImage: `url(${rankingBackgroundUrl})`,
+                             minHeight: '600px',
+                             width: '98vw',
+                             backgroundSize: 'cover',
+                             backgroundPosition: 'left 30% bottom 80%',
+                             backgroundRepeat: 'no-repeat',
+                         }}>
+                        {toolType === 'ranking' ? (
+                            <RankResult rankedCharacters={rankedCharacters}
+                                        setRankedCharacters={setRankedCharacters}
+                                        handleCharacterClick={handleCharacterClick}/>
+                        ) : (
+                            <PartyResult rankedCharacters={rankedCharacters}
+                                         setRankedCharacters={setRankedCharacters}
+                                         handleCharacterClick={handleCharacterClick}/>
+                        )}
+                    </div>
+                    <div className="pt-4 w-full">
+                        <button onClick={clearRanking}
+                                className="w-full bg-blue-300 bg-opacity-50 text-white text-opacity-90 text-center font-bold py-2 rounded-md">
+                            クリア
+                        </button>
+                    </div>
+                </ToolTypeContext.Provider>
+            </GameTypeContext.Provider>
         </div>
     );
 }

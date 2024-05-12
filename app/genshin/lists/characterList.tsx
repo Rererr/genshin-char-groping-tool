@@ -105,7 +105,7 @@ export const initialCharacters: Character[] = [
             name: 'シュヴルーズ',
             region: regionMap['Fontaine'],
             weapon: weaponMap['Polearm'],
-            type: typeMap['Electro'],
+            type: typeMap['Pyro'],
             icon: '/images/genshin/characters/Chevreuse/icon.png',
             splashArt: '/images/genshin/characters/Chevreuse/splash.png',
             rarity: 4,

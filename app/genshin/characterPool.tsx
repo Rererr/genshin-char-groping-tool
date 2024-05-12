@@ -45,8 +45,8 @@ export const CharacterPool = ({characters, rankedCharacters, onCharacterClick}: 
     });
 
     return (
-        <div className="w-full">
-            <div className="
+        <div className="w-full min-w-96">
+            <div className="pr-2
                 grid
                 grid-rows-3 tb:grid-rows-3 pc:grid-rows-2
                 grid-cols-7 tb:grid-cols-10 pc:grid-cols-17
@@ -81,7 +81,7 @@ export const CharacterPool = ({characters, rankedCharacters, onCharacterClick}: 
                     overflow-x-hidden
                     max-h-72
                     w-96 spl:w-full spl:max-w-screen-spl tb:w-11/12 tb:max-w-screen-tb pc:w-full pc:max-w-screen-pc
-                    pr-1
+                    pr-2
                 ">
                 {filteredCharacters.map((character) => {
                     // ランクリストにキャラクターが存在するかチェック
