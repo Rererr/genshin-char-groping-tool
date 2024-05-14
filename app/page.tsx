@@ -25,12 +25,10 @@ export default function CharacterRanking() {
     // 最初から空欄埋めた10キャラでランキングを作成
     const [rankedCharacters, setRankedCharacters] = useState<GenshinCharacter[] | HsrCharacter[]>(createGenshinCharacters(10));
     useEffect(() => {
-        if (gameType === 'genshin') {
-            setRankedCharacters(createGenshinCharacters(10));
-        } else {
-            setRankedCharacters(createHsrCharacters(10));
-        }
-    }, [gameType]);
+        const characterCount = toolType === 'ranking' ? 10 : 8;
+        const createCharacters = gameType === 'genshin' ? createGenshinCharacters : createHsrCharacters;
+        setRankedCharacters(createCharacters(characterCount));
+    }, [gameType, toolType]);
 
     useEffect(() => {
         const titleInput = document.getElementById('title') as HTMLInputElement;
@@ -44,14 +42,16 @@ export default function CharacterRanking() {
         const characterInRank = rankedCharacters.find(c => c.id === characterId);
 
         if (!characterInRank) {
-            // キャラクターがランキングに存在しない場合
-            const dummyIndex = rankedCharacters.findIndex(c => c.id.startsWith('dummy'));
-            if (dummyIndex === -1 && rankedCharacters.length >= 10) {
-                alert('ランキングには10人までしか追加できません');
+            const maxCharacters = toolType === 'ranking' ? 10 : 8;
+            const pureCharacters = rankedCharacters.filter(c => !c.id.startsWith('dummy'));
+
+            if (pureCharacters.length >= maxCharacters) {
+                alert(`ランキングには${maxCharacters}キャラまでしか追加できません`);
                 return;
             }
 
             const characterToAdd = gameType === 'genshin' ? initialGenshinCharacter.find(c => c.id === characterId) : initialHsrCharacter.find(c => c.id === characterId);
+            const dummyIndex = rankedCharacters.findIndex(c => c.id.startsWith('dummy'));
 
             if (characterToAdd) {
                 setRankedCharacters((currentRanked: any) => {

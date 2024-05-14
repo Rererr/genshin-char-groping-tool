@@ -1,5 +1,5 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
-import {DndContext, PointerSensor, TouchSensor, useSensor} from "@dnd-kit/core";
+import {DndContext, MouseSensor, TouchSensor, useSensor} from "@dnd-kit/core";
 import {Character as GenshinCharacter} from "@/app/genshin/interfaces/character";
 import {Character as HsrCharacter} from "@/app/hsr/interfaces/character";
 import {RankingRows} from "@/app/common/rankingRow";
@@ -38,23 +38,25 @@ export const RankResult = ({
         };
     }, [isDragging, disableScroll]);
 
-    const pointerSensorOptions = {
-        activationConstraint: {
-            delay: 80, // 25ミリ秒のディレイを設定
-            tolerance: 5 // ドラッグを開始する前に移動できるピクセル数
-        }
-    };
-
     const touchSensorOptions = {
         activationConstraint: {
-            delay: 30,  // 10ミリ秒のディレイを設定
-            tolerance: 5 // ドラッグを開始する前に移動できるピクセル数
+            delay: 30,  // 30ミリ秒のディレイを設定
+            tolerance: 5, // ドラッグを開始する前に移動できるピクセル数
+            distance: 5 // ドラッグを開始するための最小距離
         }
     };
 
+    const mouseSensorOptions = {
+        activationConstraint: {
+            delay: 80, // 80ミリ秒のディレイを設定
+            tolerance: 5, // ドラッグを開始する前に移動できるピクセル数
+            distance: 5 // ドラッグを開始するための最小距離
+        }
+    }
+
     const sensors = [
-        useSensor(PointerSensor, pointerSensorOptions),
-        useSensor(TouchSensor, touchSensorOptions)
+        useSensor(TouchSensor, touchSensorOptions),
+        useSensor(MouseSensor, mouseSensorOptions)
     ];
 
     function handleDragStart(event: any) {
