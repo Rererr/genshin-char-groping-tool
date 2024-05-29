@@ -16,12 +16,11 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const gtmId = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || '';
     return (
         <html lang="ja">
         <body className={inter.className}>{children}</body>
-        <GoogleTagManager gtmId={gtmId}/>
-        <GoogleAnalytics gaId={gtmId}/>
+        <GoogleTagManager gtmId="GTM-W3FHVQTF"/>
+        <GoogleAnalytics gaId="GTM-W3FHVQTF"/>
         </html>
     );
 }
