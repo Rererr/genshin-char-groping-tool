@@ -452,7 +452,7 @@ export const initialCharacters: Character[] = [
         id: 'TrailblazerHarmony',
         name: '開拓者(調和)',
         destiny: destinyMap['Harmony'],
-        type: typeMap['Wind'],
+        type: typeMap['Imaginary'],
         icon: '/images/hsr/characters/TrailblazerHarmony/icon.gif',
         splashArt: '/images/hsr/characters/TrailblazerHarmony/splash.gif',
         rarity: 5,
