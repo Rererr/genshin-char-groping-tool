@@ -32,7 +32,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Sethos/icon.png',
             splashArt: '/images/genshin/characters/Sethos/splash.png',
             rarity: 5,
-            rank: 1
         },
         {
             id: 'Sigewinne',
@@ -43,7 +42,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Sigewinne/icon.png',
             splashArt: '/images/genshin/characters/Sigewinne/splash.png',
             rarity: 5,
-            rank: 2
         },
         {
             id: 'Clorinde',
@@ -54,7 +52,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Clorinde/icon.png',
             splashArt: '/images/genshin/characters/Clorinde/splash.png',
             rarity: 5,
-            rank: 3
         },
         {
             id: 'Arlecchino',
@@ -65,7 +62,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Arlecchino/icon.png',
             splashArt: '/images/genshin/characters/Arlecchino/splash.png',
             rarity: 5,
-            rank: 4
         },
         {
             id: 'Chiori',
@@ -76,7 +72,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Chiori/icon.png',
             splashArt: '/images/genshin/characters/Chiori/splash.png',
             rarity: 5,
-            rank: 5
         },
         {
             id: 'Gaming',
@@ -87,7 +82,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Gaming/icon.png',
             splashArt: '/images/genshin/characters/Gaming/splash.png',
             rarity: 4,
-            rank: 6
         },
         {
             id: 'Xianyun',
@@ -98,7 +92,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Xianyun/icon.png',
             splashArt: '/images/genshin/characters/Xianyun/splash.png',
             rarity: 5,
-            rank: 7
         },
         {
             id: 'Chevreuse',
@@ -109,7 +102,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Chevreuse/icon.png',
             splashArt: '/images/genshin/characters/Chevreuse/splash.png',
             rarity: 4,
-            rank: 8
         },
         {
             id: 'Navia',
@@ -120,7 +112,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Navia/icon.png',
             splashArt: '/images/genshin/characters/Navia/splash.png',
             rarity: 5,
-            rank: 9
         },
         {
             id: 'Charlotte',
@@ -131,7 +122,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Charlotte/icon.png',
             splashArt: '/images/genshin/characters/Charlotte/splash.png',
             rarity: 4,
-            rank: 10
         },
         {
             id: 'Furina',
@@ -142,7 +132,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Furina/icon.png',
             splashArt: '/images/genshin/characters/Furina/splash.png',
             rarity: 5,
-            rank: 11
         },
         {
             id: 'Neuvillette',
@@ -153,7 +142,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Neuvillette/icon.png',
             splashArt: '/images/genshin/characters/Neuvillette/splash.png',
             rarity: 5,
-            rank: 12
         },
         {
             id: 'Wriothesley',
@@ -164,7 +152,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Wriothesley/icon.png',
             splashArt: '/images/genshin/characters/Wriothesley/splash.png',
             rarity: 5,
-            rank: 13
         },
         {
             id: 'Freminet',
@@ -175,7 +162,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Freminet/icon.png',
             splashArt: '/images/genshin/characters/Freminet/splash.png',
             rarity: 4,
-            rank: 14
         },
         {
             id: 'Lyney',
@@ -186,7 +172,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Lyney/icon.png',
             splashArt: '/images/genshin/characters/Lyney/splash.png',
             rarity: 5,
-            rank: 15
         },
         {
             id: 'Lynette',
@@ -197,7 +182,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Lynette/icon.png',
             splashArt: '/images/genshin/characters/Lynette/splash.png',
             rarity: 4,
-            rank: 16
         },
         {
             id: 'Kirara',
@@ -208,7 +192,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Kirara/icon.png',
             splashArt: '/images/genshin/characters/Kirara/splash.png',
             rarity: 4,
-            rank: 17
         },
         {
             id: 'Baizhu',
@@ -219,7 +202,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Baizhu/icon.png',
             splashArt: '/images/genshin/characters/Baizhu/splash.png',
             rarity: 5,
-            rank: 18
         },
         {
             id: 'Kaveh',
@@ -230,7 +212,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Kaveh/icon.png',
             splashArt: '/images/genshin/characters/Kaveh/splash.png',
             rarity: 4,
-            rank: 19
         },
         {
             id: 'Dehya',
@@ -241,7 +222,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Dehya/icon.png',
             splashArt: '/images/genshin/characters/Dehya/splash.png',
             rarity: 5,
-            rank: 20
         },
         {
             id: 'Mika',
@@ -252,7 +232,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Mika/icon.png',
             splashArt: '/images/genshin/characters/Mika/splash.png',
             rarity: 4,
-            rank: 21
         },
         {
             id: 'Alhaitham',
@@ -263,7 +242,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Alhaitham/icon.png',
             splashArt: '/images/genshin/characters/Alhaitham/splash.png',
             rarity: 5,
-            rank: 22
         },
         {
             id: 'Yaoyao',
@@ -274,7 +252,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Yaoyao/icon.png',
             splashArt: '/images/genshin/characters/Yaoyao/splash.png',
             rarity: 4,
-            rank: 23
         },
         {
             id: 'Wanderer',
@@ -285,7 +262,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Wanderer/icon.png',
             splashArt: '/images/genshin/characters/Wanderer/splash.png',
             rarity: 5,
-            rank: 24
         },
         {
             id: 'Faruzan',
@@ -296,7 +272,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Faruzan/icon.png',
             splashArt: '/images/genshin/characters/Faruzan/splash.png',
             rarity: 4,
-            rank: 25
         },
         {
             id: 'Layla',
@@ -307,7 +282,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Layla/icon.png',
             splashArt: '/images/genshin/characters/Layla/splash.png',
             rarity: 4,
-            rank: 26
         },
         {
             id: 'Nahida',
@@ -318,7 +292,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Nahida/icon.png',
             splashArt: '/images/genshin/characters/Nahida/splash.png',
             rarity: 5,
-            rank: 27
         },
         {
             id: 'Candace',
@@ -329,7 +302,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Candace/icon.png',
             splashArt: '/images/genshin/characters/Candace/splash.png',
             rarity: 4,
-            rank: 28
         },
         {
             id: 'Cyno',
@@ -340,7 +312,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Cyno/icon.png',
             splashArt: '/images/genshin/characters/Cyno/splash.png',
             rarity: 5,
-            rank: 29
         },
         {
             id: 'Nilou',
@@ -351,7 +322,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Nilou/icon.png',
             splashArt: '/images/genshin/characters/Nilou/splash.png',
             rarity: 5,
-            rank: 30
         },
         {
             id: 'Dori',
@@ -362,7 +332,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Dori/icon.png',
             splashArt: '/images/genshin/characters/Dori/splash.png',
             rarity: 4,
-            rank: 31
         },
         {
             id: 'Collei',
@@ -373,7 +342,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Collei/icon.png',
             splashArt: '/images/genshin/characters/Collei/splash.png',
             rarity: 4,
-            rank: 32
         },
         {
             id: 'Tighnari',
@@ -384,7 +352,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Tighnari/icon.png',
             splashArt: '/images/genshin/characters/Tighnari/splash.png',
             rarity: 5,
-            rank: 33
         },
         {
             id: 'ShikanoinHeizou',
@@ -395,7 +362,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/ShikanoinHeizou/icon.png',
             splashArt: '/images/genshin/characters/ShikanoinHeizou/splash.png',
             rarity: 4,
-            rank: 34
         },
         {
             id: 'KukiShinobu',
@@ -406,7 +372,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/KukiShinobu/icon.png',
             splashArt: '/images/genshin/characters/KukiShinobu/splash.png',
             rarity: 4,
-            rank: 35
         },
         {
             id: 'Yelan',
@@ -417,7 +382,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Yelan/icon.png',
             splashArt: '/images/genshin/characters/Yelan/splash.png',
             rarity: 5,
-            rank: 36
         },
         {
             id: 'Xiao',
@@ -428,7 +392,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Xiao/icon.png',
             splashArt: '/images/genshin/characters/Xiao/splash.png',
             rarity: 5,
-            rank: 37
         },
         {
             id: 'Xiangling',
@@ -439,7 +402,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Xiangling/icon.png',
             splashArt: '/images/genshin/characters/Xiangling/splash.png',
             rarity: 4,
-            rank: 38
         },
         {
             id: 'RaidenShogun',
@@ -450,7 +412,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/RaidenShogun/icon.png',
             splashArt: '/images/genshin/characters/RaidenShogun/splash.png',
             rarity: 5,
-            rank: 39
         },
         {
             id: 'Razor',
@@ -461,7 +422,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Razor/icon.png',
             splashArt: '/images/genshin/characters/Razor/splash.png',
             rarity: 4,
-            rank: 40
         },
         {
             id: 'Albedo',
@@ -472,7 +432,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Albedo/icon.png',
             splashArt: '/images/genshin/characters/Albedo/splash.png',
             rarity: 5,
-            rank: 41
         },
         {
             id: 'Zhongli',
@@ -483,7 +442,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Zhongli/icon.png',
             splashArt: '/images/genshin/characters/Zhongli/splash.png',
             rarity: 5,
-            rank: 42
         },
         {
             id: 'Chongyun',
@@ -494,7 +452,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Chongyun/icon.png',
             splashArt: '/images/genshin/characters/Chongyun/splash.png',
             rarity: 4,
-            rank: 43
         },
         {
             id: 'Diona',
@@ -505,7 +462,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Diona/icon.png',
             splashArt: '/images/genshin/characters/Diona/splash.png',
             rarity: 4,
-            rank: 44
         },
         {
             id: 'Diluc',
@@ -516,7 +472,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Diluc/icon.png',
             splashArt: '/images/genshin/characters/Diluc/splash.png',
             rarity: 5,
-            rank: 45
         },
         {
             id: 'Tartaglia',
@@ -527,7 +482,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Tartaglia/icon.png',
             splashArt: '/images/genshin/characters/Tartaglia/splash.png',
             rarity: 5,
-            rank: 46
         },
         {
             id: 'Xinyan',
@@ -538,7 +492,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Xinyan/icon.png',
             splashArt: '/images/genshin/characters/Xinyan/splash.png',
             rarity: 4,
-            rank: 47
         },
         {
             id: 'Noelle',
@@ -549,7 +502,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Noelle/icon.png',
             splashArt: '/images/genshin/characters/Noelle/splash.png',
             rarity: 4,
-            rank: 48
         },
         {
             id: 'Xingqiu',
@@ -560,7 +512,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Xingqiu/icon.png',
             splashArt: '/images/genshin/characters/Xingqiu/splash.png',
             rarity: 4,
-            rank: 49
         },
         {
             id: 'Fischl.png',
@@ -571,7 +522,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Fischl/icon.png',
             splashArt: '/images/genshin/characters/Fischl/splash.png',
             rarity: 4,
-            rank: 50
         },
         {
             id: 'Mona',
@@ -582,7 +532,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Mona/icon.png',
             splashArt: '/images/genshin/characters/Mona/splash.png',
             rarity: 5,
-            rank: 51
         },
         {
             id: 'AratakiItto',
@@ -593,7 +542,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/AratakiItto/icon.png',
             splashArt: '/images/genshin/characters/AratakiItto/splash.png',
             rarity: 5,
-            rank: 52
         },
         {
             id: 'Barbara',
@@ -604,7 +552,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Barbara/icon.png',
             splashArt: '/images/genshin/characters/Barbara/splash.png',
             rarity: 4,
-            rank: 53
         },
         {
             id: 'HuTao',
@@ -615,7 +562,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/HuTao/icon.png',
             splashArt: '/images/genshin/characters/HuTao/splash.png',
             rarity: 5,
-            rank: 54
         },
         {
             id: 'Rosaria',
@@ -626,7 +572,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Rosaria/icon.png',
             splashArt: '/images/genshin/characters/Rosaria/splash.png',
             rarity: 4,
-            rank: 55
         },
         {
             id: 'KamisatoAyaka',
@@ -637,7 +582,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/KamisatoAyaka/icon.png',
             splashArt: '/images/genshin/characters/KamisatoAyaka/splash.png',
             rarity: 5,
-            rank: 56
         },
         {
             id: 'KamisatoAyato',
@@ -648,7 +592,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/KamisatoAyato/icon.png',
             splashArt: '/images/genshin/characters/KamisatoAyato/splash.png',
             rarity: 5,
-            rank: 57
         },
         {
             id: 'Sucrose',
@@ -659,7 +602,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Sucrose/icon.png',
             splashArt: '/images/genshin/characters/Sucrose/splash.png',
             rarity: 4,
-            rank: 58
         },
         {
             id: 'Shenhe',
@@ -670,7 +612,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Shenhe/icon.png',
             splashArt: '/images/genshin/characters/Shenhe/splash.png',
             rarity: 5,
-            rank: 59
         },
         {
             id: 'Ganyu',
@@ -681,7 +622,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Ganyu/icon.png',
             splashArt: '/images/genshin/characters/Ganyu/splash.png',
             rarity: 5,
-            rank: 60
         },
         {
             id: 'Jean',
@@ -692,7 +632,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Jean/icon.png',
             splashArt: '/images/genshin/characters/Jean/splash.png',
             rarity: 5,
-            rank: 61
         },
         {
             id: 'Bennett',
@@ -703,7 +642,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Bennett/icon.png',
             splashArt: '/images/genshin/characters/Bennett/splash.png',
             rarity: 4,
-            rank: 62
         },
         {
             id: 'SangonomiyaKokomi',
@@ -714,7 +652,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/SangonomiyaKokomi/icon.png',
             splashArt: '/images/genshin/characters/SangonomiyaKokomi/splash.png',
             rarity: 5,
-            rank: 63
         },
         {
             id: 'Yanfei',
@@ -725,7 +662,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Yanfei/icon.png',
             splashArt: '/images/genshin/characters/Yanfei/splash.png',
             rarity: 4,
-            rank: 64
         },
         {
             id: 'Venti',
@@ -736,7 +672,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Venti/icon.png',
             splashArt: '/images/genshin/characters/Venti/splash.png',
             rarity: 5,
-            rank: 65
         },
         {
             id: 'KaedeharaKazuha',
@@ -747,7 +682,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/KaedeharaKazuha/icon.png',
             splashArt: '/images/genshin/characters/KaedeharaKazuha/splash.png',
             rarity: 5,
-            rank: 66
         },
         {
             id: 'Sayu',
@@ -758,7 +692,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Sayu/icon.png',
             splashArt: '/images/genshin/characters/Sayu/splash.png',
             rarity: 4,
-            rank: 67
         },
         {
             id: 'Thoma',
@@ -769,7 +702,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Thoma/icon.png',
             splashArt: '/images/genshin/characters/Thoma/splash.png',
             rarity: 4,
-            rank: 68
         },
         {
             id: 'Yoimiya',
@@ -780,7 +712,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Yoimiya/icon.png',
             splashArt: '/images/genshin/characters/Yoimiya/splash.png',
             rarity: 5,
-            rank: 69
         },
         {
             id: 'Amber',
@@ -791,7 +722,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Amber/icon.png',
             splashArt: '/images/genshin/characters/Amber/splash.png',
             rarity: 4,
-            rank: 70
         },
         {
             id: 'Aloy',
@@ -802,7 +732,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Aloy/icon.png',
             splashArt: '/images/genshin/characters/Aloy/splash.png',
             rarity: 5,
-            rank: 71
         },
         {
             id: 'Klee',
@@ -813,7 +742,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Klee/icon.png',
             splashArt: '/images/genshin/characters/Klee/splash.png',
             rarity: 5,
-            rank: 72
         },
         {
             id: 'Beidou',
@@ -824,7 +752,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Beidou/icon.png',
             splashArt: '/images/genshin/characters/Beidou/splash.png',
             rarity: 4,
-            rank: 73
         },
         {
             id: 'Keqing',
@@ -835,7 +762,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Keqing/icon.png',
             splashArt: '/images/genshin/characters/Keqing/splash.png',
             rarity: 5,
-            rank: 74
         },
         {
             id: 'Kaeya',
@@ -846,7 +772,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Kaeya/icon.png',
             splashArt: '/images/genshin/characters/Kaeya/splash.png',
             rarity: 4,
-            rank: 75
         },
         {
             id: 'Ningguang',
@@ -857,7 +782,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Ningguang/icon.png',
             splashArt: '/images/genshin/characters/Ningguang/splash.png',
             rarity: 4,
-            rank: 76
         },
         {
             id: 'YaeMiko',
@@ -868,7 +792,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/YaeMiko/icon.png',
             splashArt: '/images/genshin/characters/YaeMiko/splash.png',
             rarity: 5,
-            rank: 77
         },
         {
             id: 'Eula',
@@ -879,7 +802,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Eula/icon.png',
             splashArt: '/images/genshin/characters/Eula/splash.png',
             rarity: 5,
-            rank: 78
         },
         {
             id: 'Gorou',
@@ -890,7 +812,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Gorou/icon.png',
             splashArt: '/images/genshin/characters/Gorou/splash.png',
             rarity: 4,
-            rank: 79
         },
         {
             id: 'YunJin',
@@ -901,7 +822,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/YunJin/icon.png',
             splashArt: '/images/genshin/characters/YunJin/splash.png',
             rarity: 4,
-            rank: 80
         },
         {
             id: 'KujouSara',
@@ -912,7 +832,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/KujouSara/icon.png',
             splashArt: '/images/genshin/characters/KujouSara/splash.png',
             rarity: 4,
-            rank: 81
         },
         {
             id: 'Lisa',
@@ -923,7 +842,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Lisa/icon.png',
             splashArt: '/images/genshin/characters/Lisa/splash.png',
             rarity: 4,
-            rank: 82
         },
         {
             id: 'Qiqi',
@@ -934,7 +852,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Qiqi/icon.png',
             splashArt: '/images/genshin/characters/Qiqi/splash.png',
             rarity: 5,
-            rank: 83
         },
         {
             id: 'Traveler',
@@ -945,7 +862,6 @@ export const initialCharacters: Character[] = [
             icon: '/images/genshin/characters/Traveler/icon.png',
             splashArt: '/images/genshin/characters/Traveler/splash.png',
             rarity: 5,
-            rank: 84
         },
     ]
 ;

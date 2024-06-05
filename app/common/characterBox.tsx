@@ -44,7 +44,7 @@ export function CharacterBox(props: CharacterBoxProps) {
                 </div>
             ) : (<> </>)}
             {isDummyCharacter(character) ? '' : <CharacterIcon src={character.icon} alt={character.name}/>}
-            <p className={`pt-1 text-sm tb:text-lg pc:text-xl text-nowrap ` +
+            <p className={`pt-1 text-xs tb:text-md pc:text-lg text-nowrap ` +
                 (toolType === 'ranking' ? 'text-gray-100 contrast-90 grayscale invert' : 'text-white contrast-20 grayscale')
             }>
                 {character.name}

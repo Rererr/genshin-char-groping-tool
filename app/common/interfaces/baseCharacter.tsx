@@ -9,7 +9,6 @@ export interface BaseCharacter {
     icon: string;
     splashArt: string;
     rarity: number;
-    rank: number;
 }
 
 // ダミーキャラクター生成関数 (汎用)
@@ -25,7 +24,6 @@ export const createDummyCharacter = (type: 'genshin' | 'hsr'): GenshinCharacter|
         icon: '',
         splashArt: '',
         rarity: 0,
-        rank: 0,
     };
 
     if (type === 'genshin') {

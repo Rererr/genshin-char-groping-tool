@@ -136,41 +136,44 @@ export default function CharacterRanking() {
                             <span className="inline-block text-white text-sm transform -skew-x-24">パーティ編成</span>
                         </button>
                     </div>
-                    <div className="pt-4 flex justify-center w-full">
-                        <input
-                            id="title"
-                            type="text"
-                            className="p-1
+                    <div id="main-section" className="max-w-screen-pc">
+                        <div className="pt-4 flex justify-center w-full">
+                            <input
+                                id="title"
+                                type="text"
+                                className="p-1
                                 bg-transparent border-b-2 border-white border-opacity-90
                                 text-white text-opacity-90 text-center
                                 text-lg tb:text-lg pc:text-2xl
                                 font-bold placeholder-gray-500 placeholder-opacity-80 focus:outline-none w-full spl:w-96"
-                            placeholder="タイトル"
-                            maxLength={30}
-                        />
-                    </div>
-                    <div id="result"
-                         className="pt-2 pr-2
+                                placeholder="タイトル"
+                                maxLength={30}
+                            />
+                        </div>
+                        <div id="result"
+                             className="pt-2 pr-2
                                 flex justify-center
                                 max-h-rank-result tb:max-h-rank-result-tb pc:max-h-rank-result-pc
                             "
-                         style={{
-                             backgroundImage: `url(${rankingBackgroundUrl})`,
-                             minHeight: '600px',
-                             width: '98vw',
-                             backgroundSize: 'cover',
-                             backgroundPosition: 'left 30% bottom 80%',
-                             backgroundRepeat: 'no-repeat',
-                         }}>
-                        {toolType === 'ranking' ? (
-                            <RankResult rankedCharacters={rankedCharacters}
-                                        setRankedCharacters={setRankedCharacters}
-                                        handleCharacterClick={handleCharacterClick}/>
-                        ) : (
-                            <PartyResult rankedCharacters={rankedCharacters}
-                                         setRankedCharacters={setRankedCharacters}
-                                         handleCharacterClick={handleCharacterClick}/>
-                        )}
+                             style={{
+                                 backgroundImage: `url(${rankingBackgroundUrl})`,
+                                 minHeight: '600px',
+                                 width: '98vw',
+                                 maxWidth: '1450px',
+                                 backgroundSize: 'cover',
+                                 backgroundPosition: 'left 30% bottom 80%',
+                                 backgroundRepeat: 'no-repeat',
+                             }}>
+                            {toolType === 'ranking' ? (
+                                <RankResult rankedCharacters={rankedCharacters}
+                                            setRankedCharacters={setRankedCharacters}
+                                            handleCharacterClick={handleCharacterClick}/>
+                            ) : (
+                                <PartyResult rankedCharacters={rankedCharacters}
+                                             setRankedCharacters={setRankedCharacters}
+                                             handleCharacterClick={handleCharacterClick}/>
+                            )}
+                        </div>
                     </div>
                     <div className="pt-4 w-full">
                         <button onClick={clearRanking}

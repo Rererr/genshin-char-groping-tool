@@ -17,6 +17,15 @@ const typeMap: Record<string, Type> = initialTypes.reduce((map: Record<string, T
 
 export const initialCharacters: Character[] = [
     {
+        id: 'jade',
+        name: 'ジェイド',
+        destiny: destinyMap['Erudition'],
+        type: typeMap['Quantum'],
+        icon: '/images/hsr/characters/Jade/icon.png',
+        splashArt: '/images/hsr/characters/Jade/splash.png',
+        rarity: 5,
+    },
+    {
         id: 'Acheron',
         name: '黄泉',
         destiny: destinyMap['Nihility'],
@@ -24,7 +33,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Acheron/icon.png',
         splashArt: '/images/hsr/characters/Acheron/splash.png',
         rarity: 5,
-        rank: 1
     },
     {
         id: 'Argenti',
@@ -34,7 +42,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Argenti/icon.png',
         splashArt: '/images/hsr/characters/Argenti/splash.png',
         rarity: 5,
-        rank: 2
     },
     {
         id: 'Arlan',
@@ -44,7 +51,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Arlan/icon.png',
         splashArt: '/images/hsr/characters/Arlan/splash.png',
         rarity: 4,
-        rank: 3
     },
     {
         id: 'Asta',
@@ -54,7 +60,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Asta/icon.png',
         splashArt: '/images/hsr/characters/Asta/splash.png',
         rarity: 4,
-        rank: 4
     },
     {
         id: 'Aventurine',
@@ -64,7 +69,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Aventurine/icon.png',
         splashArt: '/images/hsr/characters/Aventurine/splash.png',
         rarity: 5,
-        rank: 5
     },
     {
         id: 'Bailu',
@@ -74,7 +78,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Bailu/icon.png',
         splashArt: '/images/hsr/characters/Bailu/splash.png',
         rarity: 5,
-        rank: 6
     },
     {
         id: 'BlackSwan',
@@ -84,7 +87,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/BlackSwan/icon.png',
         splashArt: '/images/hsr/characters/BlackSwan/splash.png',
         rarity: 5,
-        rank: 7
     },
     {
         id: 'Blade',
@@ -94,7 +96,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Blade/icon.png',
         splashArt: '/images/hsr/characters/Blade/splash.png',
         rarity: 5,
-        rank: 8
     },
     {
         id: 'boothill',
@@ -104,7 +105,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Boothill/icon.png',
         splashArt: '/images/hsr/characters/Boothill/splash.png',
         rarity: 5,
-        rank: 9
     },
     {
         id: 'Bronya',
@@ -114,7 +114,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Bronya/icon.png',
         splashArt: '/images/hsr/characters/Bronya/splash.png',
         rarity: 5,
-        rank: 10
     },
     {
         id: 'Clara',
@@ -124,7 +123,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Clara/icon.png',
         splashArt: '/images/hsr/characters/Clara/splash.png',
         rarity: 5,
-        rank: 11
     },
     {
         id: 'DanHeng',
@@ -134,7 +132,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/DanHeng/icon.png',
         splashArt: '/images/hsr/characters/DanHeng/splash.png',
         rarity: 4,
-        rank: 12
     },
     {
         id: 'Firefly',
@@ -144,7 +141,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Firefly/icon.png',
         splashArt: '/images/hsr/characters/Firefly/splash.png',
         rarity: 5,
-        rank: 13
     },
     {
         id: 'FuXuan',
@@ -154,7 +150,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/FuXuan/icon.png',
         splashArt: '/images/hsr/characters/FuXuan/splash.png',
         rarity: 5,
-        rank: 14
     },
     {
         id: 'Gallagher',
@@ -164,7 +159,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Gallagher/icon.png',
         splashArt: '/images/hsr/characters/Gallagher/splash.png',
         rarity: 4,
-        rank: 15
     },
     {
         id: 'Gepard',
@@ -174,7 +168,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Gepard/icon.png',
         splashArt: '/images/hsr/characters/Gepard/splash.png',
         rarity: 5,
-        rank: 16
     },
     {
         id: 'Guinaifen',
@@ -184,7 +177,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Guinaifen/icon.png',
         splashArt: '/images/hsr/characters/Guinaifen/splash.png',
         rarity: 4,
-        rank: 17
     },
     {
         id: 'Hanya',
@@ -194,7 +186,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Hanya/icon.png',
         splashArt: '/images/hsr/characters/Hanya/splash.png',
         rarity: 4,
-        rank: 18
     },
     {
         id: 'Herta',
@@ -204,7 +195,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Herta/icon.png',
         splashArt: '/images/hsr/characters/Herta/splash.png',
         rarity: 4,
-        rank: 19
     },
     {
         id: 'Himeko',
@@ -214,7 +204,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Himeko/icon.png',
         splashArt: '/images/hsr/characters/Himeko/splash.png',
         rarity: 5,
-        rank: 20
     },
     {
         id: 'Hook',
@@ -224,7 +213,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Hook/icon.png',
         splashArt: '/images/hsr/characters/Hook/splash.png',
         rarity: 4,
-        rank: 21
     },
     {
         id: 'Huohuo',
@@ -234,7 +222,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Huohuo/icon.png',
         splashArt: '/images/hsr/characters/Huohuo/splash.png',
         rarity: 5,
-        rank: 22
     },
     {
         id: 'ImbibitorLunae',
@@ -244,7 +231,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/ImbibitorLunae/icon.png',
         splashArt: '/images/hsr/characters/ImbibitorLunae/splash.png',
         rarity: 5,
-        rank: 23
     },
     {
         id: 'Jingliu',
@@ -254,7 +240,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Jingliu/icon.png',
         splashArt: '/images/hsr/characters/Jingliu/splash.png',
         rarity: 5,
-        rank: 24
     },
     {
         id: 'JingYuan',
@@ -264,7 +249,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/JingYuan/icon.png',
         splashArt: '/images/hsr/characters/JingYuan/splash.png',
         rarity: 5,
-        rank: 25
     },
     {
         id: 'Kafka',
@@ -274,7 +258,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Kafka/icon.png',
         splashArt: '/images/hsr/characters/Kafka/splash.png',
         rarity: 5,
-        rank: 26
     },
     {
         id: 'Luka',
@@ -284,7 +267,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Luka/icon.png',
         splashArt: '/images/hsr/characters/Luka/splash.png',
         rarity: 4,
-        rank: 27
     },
     {
         id: 'Luocha',
@@ -294,7 +276,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Luocha/icon.png',
         splashArt: '/images/hsr/characters/Luocha/splash.png',
         rarity: 5,
-        rank: 28
     },
     {
         id: 'Lynx',
@@ -304,7 +285,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Lynx/icon.png',
         splashArt: '/images/hsr/characters/Lynx/splash.png',
         rarity: 4,
-        rank: 29
     },
     {
         id: 'March7th',
@@ -314,7 +294,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/March7th/icon.png',
         splashArt: '/images/hsr/characters/March7th/splash.png',
         rarity: 4,
-        rank: 30
     },
     {
         id: 'Misha',
@@ -324,7 +303,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Misha/icon.png',
         splashArt: '/images/hsr/characters/Misha/splash.png',
         rarity: 4,
-        rank: 31
     },
     {
         id: 'Natasha',
@@ -334,7 +312,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Natasha/icon.png',
         splashArt: '/images/hsr/characters/Natasha/splash.png',
         rarity: 4,
-        rank: 32
     },
     {
         id: 'Pela',
@@ -344,7 +321,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Pela/icon.png',
         splashArt: '/images/hsr/characters/Pela/splash.png',
         rarity: 4,
-        rank: 33
     },
     {
         id: 'Qingque',
@@ -354,7 +330,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Qingque/icon.png',
         splashArt: '/images/hsr/characters/Qingque/splash.png',
         rarity: 4,
-        rank: 34
     },
     {
         id: 'Ratio',
@@ -364,7 +339,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Ratio/icon.png',
         splashArt: '/images/hsr/characters/Ratio/splash.png',
         rarity: 5,
-        rank: 35
     },
     {
         id: 'Robin',
@@ -374,7 +348,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Robin/icon.png',
         splashArt: '/images/hsr/characters/Robin/splash.png',
         rarity: 5,
-        rank: 36
     },
     {
         id: 'RuanMei',
@@ -384,7 +357,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/RuanMei/icon.png',
         splashArt: '/images/hsr/characters/RuanMei/splash.png',
         rarity: 5,
-        rank: 37
     },
     {
         id: 'Sampo',
@@ -394,7 +366,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Sampo/icon.png',
         splashArt: '/images/hsr/characters/Sampo/splash.png',
         rarity: 4,
-        rank: 38
     },
     {
         id: 'Seele',
@@ -404,7 +375,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Seele/icon.png',
         splashArt: '/images/hsr/characters/Seele/splash.png',
         rarity: 5,
-        rank: 39
     },
     {
         id: 'Serval',
@@ -414,7 +384,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Serval/icon.png',
         splashArt: '/images/hsr/characters/Serval/splash.png',
         rarity: 4,
-        rank: 40
     },
     {
         id: 'SilverWolf',
@@ -424,7 +393,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/SilverWolf/icon.png',
         splashArt: '/images/hsr/characters/SilverWolf/splash.png',
         rarity: 5,
-        rank: 41
     },
     {
         id: 'Sparkle',
@@ -434,7 +402,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Sparkle/icon.png',
         splashArt: '/images/hsr/characters/Sparkle/splash.png',
         rarity: 5,
-        rank: 42
     },
     {
         id: 'Sushang',
@@ -444,7 +411,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Sushang/icon.png',
         splashArt: '/images/hsr/characters/Sushang/splash.png',
         rarity: 4,
-        rank: 43
     },
     {
         id: 'Tingyun',
@@ -454,7 +420,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Tingyun/icon.png',
         splashArt: '/images/hsr/characters/Tingyun/splash.png',
         rarity: 4,
-        rank: 44
     },
     {
         id: 'Topaz',
@@ -464,7 +429,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Topaz/icon.png',
         splashArt: '/images/hsr/characters/Topaz/splash.png',
         rarity: 5,
-        rank: 45
     },
     {
         id: 'TrailblazerDestruction',
@@ -474,7 +438,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/TrailblazerDestruction/icon.gif',
         splashArt: '/images/hsr/characters/TrailblazerDestruction/splash.gif',
         rarity: 5,
-        rank: 46
     },
     {
         id: 'TrailblazerPreservation',
@@ -484,7 +447,15 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/TrailblazerPreservation/icon.gif',
         splashArt: '/images/hsr/characters/TrailblazerPreservation/splash.gif',
         rarity: 5,
-        rank: 47
+    },
+    {
+        id: 'TrailblazerHarmony',
+        name: '開拓者(調和)',
+        destiny: destinyMap['Harmony'],
+        type: typeMap['Wind'],
+        icon: '/images/hsr/characters/TrailblazerHarmony/icon.gif',
+        splashArt: '/images/hsr/characters/TrailblazerHarmony/splash.gif',
+        rarity: 5,
     },
     {
         id: 'Welt',
@@ -494,7 +465,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Welt/icon.png',
         splashArt: '/images/hsr/characters/Welt/splash.png',
         rarity: 5,
-        rank: 48
     },
     {
         id: 'Xueyi',
@@ -504,7 +474,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Xueyi/icon.png',
         splashArt: '/images/hsr/characters/Xueyi/splash.png',
         rarity: 4,
-        rank: 49
     },
     {
         id: 'Yanqing',
@@ -514,7 +483,6 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Yanqing/icon.png',
         splashArt: '/images/hsr/characters/Yanqing/splash.png',
         rarity: 5,
-        rank: 50
     },
     {
         id: 'Yukong',
@@ -524,6 +492,5 @@ export const initialCharacters: Character[] = [
         icon: '/images/hsr/characters/Yukong/icon.png',
         splashArt: '/images/hsr/characters/Yukong/splash.png',
         rarity: 4,
-        rank: 51
     },
 ];
